@@ -26,7 +26,11 @@ while (have_posts()) : the_post();
 </section>
 
 <?php
-$rel = new WP_Query(['post_type'=>'post','posts_per_page'=>3,'post__not_in'=>[get_the_ID()],'orderby'=>'rand']);
+$__catids = wp_get_post_categories(get_the_ID());
+$rel = new WP_Query(['post_type'=>'post','posts_per_page'=>3,'post__not_in'=>[get_the_ID()],
+  'orderby'=>'date','order'=>'DESC','category__in'=>$__catids ?: [0]]);
+if (!$rel->have_posts()) // không đủ bài cùng danh mục → lấy bài mới nhất
+  $rel = new WP_Query(['post_type'=>'post','posts_per_page'=>3,'post__not_in'=>[get_the_ID()],'orderby'=>'date','order'=>'DESC']);
 if ($rel->have_posts()) : ?>
 <section class="section section--alt">
   <div class="wrap">
