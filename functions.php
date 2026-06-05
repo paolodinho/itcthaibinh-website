@@ -5,7 +5,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ITC_VER', '9.2.1');
+define('ITC_VER', '9.2.2');
 
 /* ----------------------------------------------------------
  * Theme setup
