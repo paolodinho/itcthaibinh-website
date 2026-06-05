@@ -137,9 +137,9 @@ $tel = esc_attr(itc_contact('hotline_raw'));
     <div class="section-head section-head--center reveal">
       <span class="kicker">Quy trình</span>
       <h2>4 bước đơn giản để du học cùng ITC</h2>
-      <p class="lead">Mỗi bước hoàn tất là một con dấu trên tấm hộ chiếu du học của bạn - ITC lo trọn từ A đến Z.</p>
+      <p class="lead">ITC lo trọn từ A đến Z - bạn chỉ cần đi theo lộ trình 4 bước rõ ràng dưới đây.</p>
     </div>
-    <div class="passport reveal" data-delay="1">
+    <div class="steps reveal" data-delay="1">
       <?php
       $proc = itc_cards('home-process') ?: [
         ['icon'=>'compass','title'=>'Tư vấn & định hướng','desc'=>'Lắng nghe mục tiêu, đánh giá năng lực và đề xuất lộ trình phù hợp.'],
@@ -148,8 +148,8 @@ $tel = esc_attr(itc_contact('hotline_raw'));
         ['icon'=>'plane','title'=>'Lên đường & hỗ trợ','desc'=>'Đón sân bay, ổn định chỗ ở và đồng hành suốt thời gian học.'],
       ];
       foreach ($proc as $i=>$c)
-        printf('<article class="pstamp" data-stamp="%d"><span class="pstamp__seal">%s</span><span class="pstamp__no">BƯỚC %02d</span><h3>%s</h3><p>%s</p></article>',
-          $i, itc_icon($c['icon']?:'star',28), $i+1, esc_html($c['title']), esc_html($c['desc'])); ?>
+        printf('<article class="step"><div class="step__top"><span class="step__ico">%s</span><span class="step__num">%02d</span></div><span class="step__label">Bước %02d</span><h3>%s</h3><p>%s</p></article>',
+          itc_icon($c['icon']?:'star',24), $i+1, $i+1, esc_html($c['title']), esc_html($c['desc'])); ?>
     </div>
   </div>
 </section>
