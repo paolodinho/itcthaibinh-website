@@ -5,7 +5,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ITC_VER', '9.5.0');
+define('ITC_VER', '9.6.0');
 
 /* ----------------------------------------------------------
  * Theme setup
@@ -361,6 +361,40 @@ function itc_partners() {
     $out = [];
     while ($q->have_posts()) { $q->the_post();
         if (has_post_thumbnail()) $out[] = ['name' => get_the_title(), 'logo' => get_the_post_thumbnail_url(null, 'medium'), 'link' => get_post_meta(get_the_ID(), '_partner_link', true)];
+    }
+    wp_reset_postdata();
+    return $out;
+}
+
+/* ----------------------------------------------------------
+ * CPT "Đội ngũ" - thành viên/ban lãnh đạo (no-code: ảnh + tên + chức vụ)
+ * -------------------------------------------------------- */
+add_action('init', function () {
+    register_post_type('itc_member', [
+        'labels' => ['name' => 'Đội ngũ', 'singular_name' => 'Thành viên', 'add_new_item' => 'Thêm thành viên',
+            'edit_item' => 'Sửa thành viên', 'menu_name' => 'Đội ngũ', 'all_items' => 'Tất cả thành viên'],
+        'public' => false, 'show_ui' => true, 'show_in_rest' => true, 'menu_icon' => 'dashicons-groups',
+        'menu_position' => 12, 'supports' => ['title', 'thumbnail', 'page-attributes'],
+    ]);
+}, 11);
+add_action('add_meta_boxes', function () {
+    add_meta_box('itc_member_meta', 'Thông tin thành viên', function ($post) {
+        wp_nonce_field('itc_member', 'itc_member_nonce');
+        $role = get_post_meta($post->ID, '_member_role', true);
+        echo '<p><label><b>Chức vụ / Vai trò</b><br><input type="text" name="member_role" value="' . esc_attr($role) . '" style="width:100%" placeholder="VD: Giám đốc / Tư vấn viên / Giáo viên tiếng Trung"></label></p>';
+        echo '<p class="description">Ảnh đại diện thành viên đặt ở "Ảnh đại diện". Tên ở ô Tiêu đề. Thứ tự: "Thứ tự".</p>';
+    }, 'itc_member', 'side');
+});
+add_action('save_post_itc_member', function ($id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (isset($_POST['itc_member_nonce']) && wp_verify_nonce($_POST['itc_member_nonce'], 'itc_member'))
+        update_post_meta($id, '_member_role', sanitize_text_field($_POST['member_role'] ?? ''));
+});
+function itc_members() {
+    $q = new WP_Query(['post_type' => 'itc_member', 'posts_per_page' => 20, 'orderby' => 'menu_order title', 'order' => 'ASC']);
+    $out = [];
+    while ($q->have_posts()) { $q->the_post();
+        if (has_post_thumbnail()) $out[] = ['name' => get_the_title(), 'photo' => get_the_post_thumbnail_url(null, 'medium_large'), 'role' => get_post_meta(get_the_ID(), '_member_role', true)];
     }
     wp_reset_postdata();
     return $out;

@@ -89,6 +89,36 @@ itc_page_hero('Giới thiệu ITC Thái Bình', 'Cầu nối vững chắc giữ
   </div>
 </section>
 
+<!-- ĐỘI NGŨ ITC -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="kicker">Đội ngũ</span>
+      <h2>Con người làm nên ITC</h2>
+      <p class="lead">Đội ngũ tư vấn am hiểu thực tế du học cùng giáo viên giàu kinh nghiệm - đồng hành cùng bạn từ buổi tư vấn đầu tiên đến khi đặt chân tới giảng đường.</p>
+    </div>
+    <?php $members = itc_members(); if ($members): ?>
+    <div class="team reveal" data-delay="1">
+      <?php foreach ($members as $m): ?>
+      <article class="member">
+        <div class="member__photo"><img src="<?php echo esc_url($m['photo']); ?>" alt="<?php echo esc_attr($m['name']); ?>" loading="lazy"></div>
+        <h3><?php echo esc_html($m['name']); ?></h3>
+        <?php if (!empty($m['role'])): ?><span class="member__role"><?php echo esc_html($m['role']); ?></span><?php endif; ?>
+      </article>
+      <?php endforeach; ?>
+    </div>
+    <?php else:
+      $img = get_template_directory_uri() . '/assets/images';
+      $tm = [['about-team.jpg','Đội ngũ tư vấn ITC'],['lang-chinese.jpg','Giáo viên tiếng Trung'],['lang-japanese.jpg','Giáo viên tiếng Nhật'],['gal-8.jpg','Tư vấn viên &amp; học viên']]; ?>
+    <div class="team-strip reveal" data-delay="1">
+      <?php foreach ($tm as $t): ?>
+      <figure class="team-strip__item"><img src="<?php echo esc_url($img.'/'.$t[0]); ?>" alt="<?php echo esc_attr(wp_strip_all_tags($t[1])); ?>" loading="lazy"><figcaption><?php echo $t[1]; ?></figcaption></figure>
+      <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+  </div>
+</section>
+
 <?php
 itc_faq([
   ['ITC Thái Bình là đơn vị nào?', 'ITC là Công ty Cổ phần Đầu tư Phát triển Quốc tế ITC, đơn vị tư vấn du học và đào tạo ngoại ngữ uy tín tại Thái Bình, với hơn 10 năm kinh nghiệm và 50+ trường đối tác tại Đài Loan, Nhật Bản.'],

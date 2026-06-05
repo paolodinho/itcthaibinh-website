@@ -853,3 +853,21 @@ b.pop{animation:popnum .4s var(--ease)}
 .pnet__item p{color:var(--muted);font-size:.92rem;line-height:1.55}
 @media (max-width:900px){.pnet{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.pnet{grid-template-columns:1fr}}
+
+/* ============ ĐỘI NGŨ ITC ============ */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.member{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 20px;text-align:center;transition:.22s var(--ease)}
+.member:hover{border-color:var(--blue);box-shadow:0 16px 36px rgba(20,44,107,.1);transform:translateY(-4px)}
+.member__photo{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:3px solid var(--paper-2)}
+.member__photo img{width:100%;height:100%;object-fit:cover}
+.member h3{font-size:1.1rem;color:var(--blue-dk);margin-bottom:4px}
+.member__role{font-size:.9rem;color:var(--red);font-weight:600}
+/* fallback: dải ảnh đội ngũ */
+.team-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.team-strip__item{position:relative;margin:0;border-radius:14px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 8px 22px rgba(20,44,107,.08)}
+.team-strip__item img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.team-strip__item:hover img{transform:scale(1.05)}
+.team-strip__item figcaption{position:absolute;inset:auto 0 0 0;padding:26px 14px 12px;color:#fff;font-weight:600;font-size:.92rem;
+  background:linear-gradient(to top,rgba(16,30,66,.85),transparent)}
+@media (max-width:900px){.team,.team-strip{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.team{grid-template-columns:1fr 1fr}.team-strip{grid-template-columns:1fr 1fr}}
