@@ -113,5 +113,6 @@ itc_faq(itc_faq_items('tieng-trung', [
   ['ITC có hỗ trợ học lại nếu chưa đạt mục tiêu không?', 'Có. ITC áp dụng chính sách hỗ trợ học lại phần chưa đạt theo từng khóa và cấp độ. Chi tiết điều kiện học lại được tư vấn rõ khi bạn đăng ký, gắn với cam kết đầu ra của khóa.'],
   ['Học tiếng Trung tại ITC có thể chuyển sang học tiếng Nhật không?', 'Được. ITC đào tạo cả tiếng Trung và tiếng Nhật, nhiều học viên học song song hoặc chuyển hướng theo định hướng du học. Bạn có thể trao đổi với tư vấn viên để chọn ngôn ngữ và lộ trình phù hợp mục tiêu của mình.'],
 ]));
+itc_related_articles('hoc-tieng-trung', 'Cẩm nang &amp; luyện thi tiếng Trung');
 itc_register_section('Đăng ký học thử tiếng Trung miễn phí', 'Để lại thông tin, ITC sẽ kiểm tra trình độ và xếp lớp phù hợp với bạn - hoàn toàn miễn phí.', 'Học tiếng Trung');
 get_footer();

@@ -113,5 +113,6 @@ itc_faq(itc_faq_items('tieng-nhat', [
   ['Học tiếng Nhật tại ITC có được tư vấn du học luôn không?', 'Có. ITC vừa đào tạo ngôn ngữ vừa tư vấn du học Nhật Bản và Đài Loan. Học viên được hỗ trợ trọn lộ trình từ học tiếng đến làm hồ sơ du học, tiết kiệm thời gian và chi phí.'],
   ['Đăng ký học thử tiếng Nhật tại ITC như thế nào?', 'Bạn chỉ cần gọi hotline 0985 653 868 hoặc để lại thông tin tại trang liên hệ. ITC sẽ kiểm tra trình độ, tư vấn lộ trình phù hợp và sắp xếp buổi học thử miễn phí.'],
 ]));
+itc_related_articles('hoc-tieng-nhat', 'Cẩm nang &amp; luyện thi tiếng Nhật');
 itc_register_section('Đăng ký học thử tiếng Nhật miễn phí', 'Để lại thông tin, ITC sẽ kiểm tra trình độ và xếp lớp phù hợp với bạn - hoàn toàn miễn phí.', 'Học tiếng Nhật');
 get_footer();

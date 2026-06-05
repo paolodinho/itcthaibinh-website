@@ -242,5 +242,6 @@ itc_faq(itc_faq_items('du-hoc-dai-loan', [
   ['Sau khi tốt nghiệp ở Đài Loan có được ở lại làm việc không?', 'Có. Sinh viên tốt nghiệp được xin giấy phép ở lại tìm việc và làm việc tại Đài Loan, đặc biệt thuận lợi với các ngành kỹ thuật, công nghệ đang thiếu nhân lực. Đây cũng là con đường hướng tới định cư dài hạn.'],
   ['Nên chọn ngành nào khi du học Đài Loan?', 'Các ngành kỹ thuật, công nghệ bán dẫn, công nghệ thông tin và quản trị kinh doanh được đánh giá cao và có cơ hội việc làm rộng mở tại Đài Loan. ITC sẽ tư vấn ngành phù hợp với từng học viên.'],
 ]));
+itc_related_articles('duhoc-dailoan', 'Cẩm nang du học Đài Loan');
 itc_register_section('Bắt đầu hành trình du học Đài Loan của bạn', 'Để lại thông tin, ITC sẽ gọi lại tư vấn miễn phí trong vòng 24 giờ và xây lộ trình phù hợp với năng lực, tài chính của bạn.', 'Du học Đài Loan');
 get_footer();

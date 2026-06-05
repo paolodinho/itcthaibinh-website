@@ -5,7 +5,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ITC_VER', '9.4.0');
+define('ITC_VER', '9.5.0');
 
 /* ----------------------------------------------------------
  * Theme setup
@@ -635,6 +635,28 @@ function itc_post_image_url($post_id = null) {
     $cats = get_the_category($post_id);
     if ($cats) { $slug = $cats[0]->slug; if (isset($map[$slug])) return $img . '/' . $map[$slug]; }
     return $img . '/act-3.jpg';
+}
+// Khối "Cẩm nang liên quan" — link bài viết theo danh mục (pillar → cluster)
+function itc_related_articles($cat_slug, $heading = 'Cẩm nang liên quan', $n = 3) {
+    $q = new WP_Query(['post_type' => 'post', 'posts_per_page' => $n, 'category_name' => $cat_slug,
+        'orderby' => 'date', 'order' => 'DESC', 'ignore_sticky_posts' => true]);
+    if (!$q->have_posts()) { wp_reset_postdata(); return; }
+    echo '<section class="section section--alt"><div class="wrap">';
+    echo '<div class="section-head section-head--center reveal"><span class="kicker">Cẩm nang</span><h2>' . esc_html($heading) . '</h2></div>';
+    echo '<div class="posts reveal" data-delay="1">';
+    while ($q->have_posts()) { $q->the_post(); ?>
+      <article class="pcard">
+        <a class="pcard__media" href="<?php the_permalink(); ?>"><img src="<?php echo esc_url(itc_post_image_url()); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"></a>
+        <div class="pcard__body">
+          <span class="pcard__date"><?php echo get_the_date('d/m/Y'); ?></span>
+          <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        </div>
+      </article>
+    <?php }
+    echo '</div>';
+    echo '<p style="text-align:center;margin-top:30px"><a class="btn btn-outline" href="' . esc_url(home_url('/tin-tuc-su-kien/')) . '">Xem tất cả cẩm nang ' . itc_icon('arrow', 15) . '</a></p>';
+    echo '</div></section>';
+    wp_reset_postdata();
 }
 function itc_post_cat($post_id = null) {
     $cats = get_the_category($post_id ?: get_the_ID());

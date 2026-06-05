@@ -165,5 +165,6 @@ itc_faq(itc_faq_items('du-hoc-nhat-ban', [
   ['ITC ở Thái Bình hỗ trợ những gì cho du học sinh?', 'ITC hỗ trợ trọn gói: tư vấn định hướng, đào tạo tiếng Nhật, làm hồ sơ, xin tư cách lưu trú và visa, hỗ trợ trước bay. Học viên Thái Bình và lân cận không phải đi nhiều nơi.'],
   ['Nên chọn du học Nhật Bản hay Đài Loan?', 'Tùy mục tiêu. Nhật Bản phù hợp bạn muốn lộ trình dài hạn, thu nhập làm thêm cao và cơ hội định cư. Du học Đài Loan thường chi phí mềm hơn. ITC tư vấn cả hai để bạn chọn hướng phù hợp nhất.'],
 ]));
+itc_related_articles('duhoc-nhatban', 'Cẩm nang du học Nhật Bản');
 itc_register_section('Bắt đầu hành trình du học Nhật Bản của bạn', 'Để lại thông tin, ITC sẽ gọi lại tư vấn miễn phí trong vòng 24 giờ và xây lộ trình phù hợp với năng lực, tài chính của bạn.', 'Du học Nhật Bản');
 get_footer();
