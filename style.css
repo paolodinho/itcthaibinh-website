@@ -1,0 +1,13 @@
+/*
+Theme Name: ITC Thái Bình
+Theme URI: https://itcthaibinh.vn
+Description: Theme custom cho ITC Thái Bình — Du học & Đào tạo ngoại ngữ Đài Loan, Nhật Bản. Tông xanh nước biển + điểm nhấn đỏ.
+Author: Digito Combat
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.9
+Requires PHP: 8.0
+Text Domain: itc
+*/
+
+/* CSS thực tế nằm ở assets/css/main.css (enqueue trong functions.php). File này chỉ giữ theme header. */

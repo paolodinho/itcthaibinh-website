@@ -1,0 +1,12 @@
+# Backup cục bộ (đã có git lo rollback)
+_backup/
+
+# macOS / hệ thống
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor / deps
+node_modules/
+.idea/
+.vscode/
