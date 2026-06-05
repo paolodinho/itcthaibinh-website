@@ -557,7 +557,8 @@ h2{font-size:clamp(2rem,3.9vw,3.05rem);color:var(--ink)}
   .usp__grid{grid-template-columns:1fr}
   .svc__grid{grid-template-columns:1fr 1fr}
   .why{grid-template-columns:1fr}
-  .why__media{min-height:320px}
+  .why__media{min-height:0;aspect-ratio:5/6;max-height:72vh}
+  .why__media img{object-position:50% 34%}
   .register__grid{grid-template-columns:1fr}
   .proc__track{grid-template-columns:1fr 1fr;gap:34px}
   .proc__track::before{display:none}
