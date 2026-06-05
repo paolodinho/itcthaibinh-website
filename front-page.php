@@ -64,6 +64,32 @@ $tel = esc_attr(itc_contact('hotline_raw'));
   </div>
 </section>
 
+<!-- ============ CHƯƠNG TRÌNH DU HỌC (các hệ) ============ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="kicker">Chương trình du học</span>
+      <h2>Đa dạng hệ du học - chọn đúng lộ trình của bạn</h2>
+      <p class="lead">Từ học bổng toàn phần đến hệ vừa học vừa làm tự trang trải chi phí - ITC tư vấn hệ phù hợp năng lực &amp; ngân sách của bạn.</p>
+    </div>
+    <div class="progs reveal" data-delay="1">
+      <?php
+      $progs = itc_cards('home-programs') ?: [
+        ['icon'=>'cap','title'=>'Hệ ngôn ngữ','desc'=>'Học tiếng Trung/Nhật tại bản địa trước khi vào chuyên ngành - nền tảng vững để săn học bổng.'],
+        ['icon'=>'network','title'=>'Hệ vừa học vừa làm','desc'=>'Đặc trưng Đài Loan: vừa học đại học vừa thực tập có lương, giảm mạnh gánh nặng tài chính.'],
+        ['icon'=>'tower','title'=>'Đại học & Cao đẳng','desc'=>'Hệ chính quy 2-4 năm, bằng cấp giá trị quốc tế tại các trường top Đài Loan, Nhật Bản.'],
+        ['icon'=>'medal','title'=>'Sau đại học','desc'=>'Thạc sĩ, tiến sĩ - nhiều suất học bổng MOE, MEXT và học bổng trường dành cho hệ này.'],
+        ['icon'=>'star','title'=>'Săn học bổng','desc'=>'ITC định hướng hồ sơ, luyện phỏng vấn để tối đa cơ hội nhận học bổng bán phần - toàn phần.'],
+        ['icon'=>'shield','title'=>'Dự bị / Chuyển tiếp','desc'=>'Hệ dự bị, 1+4, 2+2 cho học sinh chưa đủ điều kiện đầu vào hoặc muốn lộ trình linh hoạt.'],
+      ];
+      foreach ($progs as $c)
+        printf('<article class="prog"><span class="prog__ico">%s</span><h3>%s</h3><p>%s</p></article>',
+          itc_icon($c['icon']?:'star',24), esc_html($c['title']), esc_html($c['desc'])); ?>
+    </div>
+    <p style="text-align:center;margin-top:34px"><a class="btn btn-blue btn-lg" href="#register">Tư vấn hệ phù hợp với bạn <?php echo itc_icon('arrow',16); ?></a></p>
+  </div>
+</section>
+
 <!-- ============ VÌ SAO CHỌN ITC (blue split + ảnh) ============ -->
 <section class="why">
   <div class="why__media">
@@ -182,6 +208,32 @@ $tel = esc_attr(itc_contact('hotline_raw'));
       }
       ?>
     </div>
+  </div>
+</section>
+
+<!-- ============ TRƯỜNG ĐỐI TÁC ============ -->
+<section class="section partners">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="kicker">Mạng lưới đối tác</span>
+      <h2>Hệ thống trường đối tác tại Đài Loan &amp; Nhật Bản</h2>
+      <p class="lead">ITC hợp tác trực tiếp với các trường - đảm bảo hồ sơ, học bổng và suất học chính thống, minh bạch.</p>
+    </div>
+    <?php $partners = itc_partners(); if ($partners): ?>
+    <div class="logos reveal" data-delay="1">
+      <?php foreach ($partners as $p):
+        $tag = !empty($p['link']) ? 'a' : 'span'; $href = !empty($p['link']) ? ' href="'.esc_url($p['link']).'" target="_blank" rel="noopener"' : ''; ?>
+      <<?php echo $tag.$href; ?> class="logo" title="<?php echo esc_attr($p['name']); ?>"><img src="<?php echo esc_url($p['logo']); ?>" alt="<?php echo esc_attr($p['name']); ?>" loading="lazy"></<?php echo $tag; ?>>
+      <?php endforeach; ?>
+    </div>
+    <?php else: ?>
+    <div class="pnet reveal" data-delay="1">
+      <div class="pnet__item"><span class="pnet__ico"><?php echo itc_icon('tower',22); ?></span><div><b>Trường top đầu</b><p>Đại học công lập &amp; tư thục uy tín tại Đài Loan, Nhật Bản.</p></div></div>
+      <div class="pnet__item"><span class="pnet__ico"><?php echo itc_icon('compass',22); ?></span><div><b>Trải khắp khu vực</b><p>Trường ở miền Bắc - Trung - Nam - Đông Đài Loan &amp; nhiều tỉnh Nhật.</p></div></div>
+      <div class="pnet__item"><span class="pnet__ico"><?php echo itc_icon('cap',22); ?></span><div><b>Đủ mọi hệ học</b><p>Từ trường tiếng, đại học đến sau đại học - nhiều suất học bổng.</p></div></div>
+      <div class="pnet__item"><span class="pnet__ico"><?php echo itc_icon('shield',22); ?></span><div><b>Hợp tác chính thống</b><p>Hồ sơ qua kênh trường trực tiếp, minh bạch và an toàn.</p></div></div>
+    </div>
+    <?php endif; ?>
   </div>
 </section>
 

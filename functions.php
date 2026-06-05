@@ -5,7 +5,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ITC_VER', '9.2.2');
+define('ITC_VER', '9.3.0');
 
 /* ----------------------------------------------------------
  * Theme setup
@@ -329,6 +329,41 @@ function itc_photo_groups() {
             $g('gal-7.jpg','Kỷ niệm du học'), $g('gal-11.jpg','Học viên & ITC'),
         ]],
     ];
+}
+
+/* ----------------------------------------------------------
+ * CPT "Trường đối tác" - logo các trường ĐH đối tác (no-code up logo)
+ * -------------------------------------------------------- */
+add_action('init', function () {
+    register_post_type('itc_partner', [
+        'labels' => ['name' => 'Trường đối tác', 'singular_name' => 'Trường', 'add_new_item' => 'Thêm trường',
+            'edit_item' => 'Sửa trường', 'menu_name' => 'Trường đối tác', 'all_items' => 'Tất cả trường'],
+        'public' => false, 'show_ui' => true, 'show_in_rest' => true, 'menu_icon' => 'dashicons-bank',
+        'menu_position' => 11, 'supports' => ['title', 'thumbnail', 'page-attributes'],
+    ]);
+}, 11);
+add_action('add_meta_boxes', function () {
+    add_meta_box('itc_partner_meta', 'Thông tin trường', function ($post) {
+        wp_nonce_field('itc_partner', 'itc_partner_nonce');
+        $link = get_post_meta($post->ID, '_partner_link', true);
+        echo '<p><label><b>Website trường (tùy chọn)</b><br><input type="url" name="partner_link" value="' . esc_attr($link) . '" style="width:100%" placeholder="https://..."></label></p>';
+        echo '<p class="description">Logo trường đặt ở "Ảnh đại diện". Tên trường ở ô Tiêu đề. Thứ tự: ô "Thứ tự".</p>';
+    }, 'itc_partner', 'side');
+});
+add_action('save_post_itc_partner', function ($id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (isset($_POST['itc_partner_nonce']) && wp_verify_nonce($_POST['itc_partner_nonce'], 'itc_partner'))
+        update_post_meta($id, '_partner_link', esc_url_raw($_POST['partner_link'] ?? ''));
+});
+// Trả mảng logo đối tác (rỗng nếu chưa up)
+function itc_partners() {
+    $q = new WP_Query(['post_type' => 'itc_partner', 'posts_per_page' => 40, 'orderby' => 'menu_order title', 'order' => 'ASC']);
+    $out = [];
+    while ($q->have_posts()) { $q->the_post();
+        if (has_post_thumbnail()) $out[] = ['name' => get_the_title(), 'logo' => get_the_post_thumbnail_url(null, 'medium'), 'link' => get_post_meta(get_the_ID(), '_partner_link', true)];
+    }
+    wp_reset_postdata();
+    return $out;
 }
 
 /* ----------------------------------------------------------
