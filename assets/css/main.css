@@ -822,5 +822,6 @@ b.pop{animation:popnum .4s var(--ease)}
 .skyfly__plane::before{content:"";position:absolute;left:50%;top:calc(100% - 4px);transform:translateX(-50%);
   width:3px;height:130px;border-radius:3px;
   background:linear-gradient(to bottom,rgba(211,47,47,.42),rgba(28,62,149,.14) 45%,transparent)}
-@media (max-width:860px){.skyfly{display:none}}
+/* Máy bay hiện trên MỌI thiết bị (mobile thu nhỏ chút cho gọn) */
+@media (max-width:600px){.skyfly__plane svg{width:32px;height:32px}}
 @media (prefers-reduced-motion:reduce){.skyfly{display:none}}

@@ -180,7 +180,6 @@
     var w = document.querySelector('[data-skyfly]');
     if (!w) return;
     if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-    if (window.matchMedia('(max-width:860px)').matches) return;
     var path = w.querySelector('.skyfly__path');
     var plane = w.querySelector('.skyfly__plane');
     var svg = w.querySelector('.skyfly__svg');
