@@ -5,7 +5,7 @@
   <div class="wrap">
     <div class="foot-brand">
       <span class="foot-logo"><img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo.png'); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" width="150" height="73"></span>
-      <p><?php echo esc_html(itc_mod('itc_footer_about', 'Trung tâm Tư vấn Du học và Ngoại ngữ ITC - đồng hành cùng học viên Thái Bình trên hành trình tới giảng đường quốc tế.')); ?></p>
+      <p><?php echo esc_html(itc_mod('itc_footer_about', 'Trung tâm Tư vấn Du học và Ngoại ngữ ITC.')); ?></p>
       <div class="foot-social">
         <span class="foot-social__label">Kết nối với ITC</span>
         <?php $fb_du = itc_contact('fb_duhoc'); $fb_hn = itc_contact('fb_hoangu'); ?>

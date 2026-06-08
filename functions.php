@@ -5,7 +5,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ITC_VER', '10.2.0');
+define('ITC_VER', '10.3.0');
 
 /* ----------------------------------------------------------
  * Theme setup
@@ -31,7 +31,7 @@ add_action('wp_enqueue_scripts', function () {
     // Google Fonts: Lora + Be Vietnam Pro (subset Vietnamese)
     wp_enqueue_style(
         'itc-fonts',
-        'https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@1,500;1,600&family=Montserrat:wght@600;700;800;900&display=swap',
+        'https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Lora:ital,wght@1,500;1,600&display=swap',
         [],
         null
     );

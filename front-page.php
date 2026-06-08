@@ -117,8 +117,8 @@ $hot  = esc_html(itc_contact('hotline'));
 <section class="clx-act">
   <div class="wrap">
     <div class="clx-head reveal"><span class="kk">Khoảnh khắc ITC</span><h2>Các hoạt động của ITC</h2></div>
-    <div class="clx-gal reveal" data-delay="1">
-      <?php foreach (['gal-1.jpg','gal-2.jpg','gal-4.jpg','gal-3.jpg','gal-5.jpg','gal-6.jpg','gal-9.jpg','gal-11.jpg'] as $g): ?>
+    <div class="clx-gal clx-gal--scroll reveal" data-delay="1">
+      <?php foreach (['gal-1.jpg','gal-2.jpg','gal-4.jpg','gal-3.jpg','gal-5.jpg','gal-6.jpg','gal-9.jpg','gal-11.jpg','act-1.jpg','act-3.jpg'] as $g): ?>
       <figure><img src="<?php echo esc_url($img.'/'.$g); ?>" alt="Hoạt động ITC" loading="lazy"></figure>
       <?php endforeach; ?>
     </div>
@@ -144,26 +144,6 @@ $hot  = esc_html(itc_contact('hotline'));
         <?php endforeach; ?>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ĐỐI TÁC -->
-<section class="clx-sec clx-sec--pale">
-  <div class="wrap">
-    <div class="clx-head reveal"><span class="kk">Đối tác</span><h2>Mạng lưới trường đối tác của ITC</h2><p>Hợp tác cùng nhiều trường đại học &amp; học viện tại Đài Loan và Nhật Bản.</p></div>
-    <?php $partners = function_exists('itc_partners') ? itc_partners() : []; ?>
-    <?php if ($partners): ?>
-    <div class="logos reveal" data-delay="1">
-      <?php foreach ($partners as $p): ?>
-      <div class="logo"><img src="<?php echo esc_url($p['logo']); ?>" alt="<?php echo esc_attr($p['name']); ?>" loading="lazy"></div>
-      <?php endforeach; ?>
-    </div>
-    <?php else: ?>
-    <div class="clx-pt reveal" data-delay="1">
-      <div><b>Đài Loan</b><span>NTUST · Ming Chuan · Chien Hsin · Feng Chia · I-Shou · Asia University…</span></div>
-      <div><b>Nhật Bản</b><span>ISI · Akamonkai · Kudan · Waseda · Ritsumeikan · Teikyo…</span></div>
-    </div>
-    <?php endif; ?>
   </div>
 </section>
 
