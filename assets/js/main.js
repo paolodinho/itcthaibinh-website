@@ -22,7 +22,7 @@
   }
 
   /* ---- Header shadow on scroll ---- */
-  var header = document.querySelector('.site-header');
+  var header = document.querySelector('.twn-navwrap') || document.querySelector('.site-header');
   if (header) {
     var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 20); };
     onScroll();

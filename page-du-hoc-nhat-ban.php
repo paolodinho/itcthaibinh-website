@@ -41,11 +41,11 @@ itc_page_hero('Du học Nhật Bản', 'Môi trường kỷ luật, bằng cấp
     <div class="section-head section-head--center reveal">
       <span class="kicker">Vì sao chọn Nhật Bản</span>
       <h2>Điểm đến du học bền vững hàng đầu châu Á</h2>
-      <p class="lead">Nhật Bản kết hợp nền giáo dục chất lượng cao, chi phí hợp lý và chính sách làm thêm hợp pháp để trang trải sinh hoạt.</p>
+      <p class="lead">Nhật Bản kết hợp nền giáo dục chất lượng cao, môi trường kỷ luật và chính sách làm thêm hợp pháp rõ ràng.</p>
     </div>
     <div class="icards reveal" data-delay="1" style="grid-template-columns:repeat(3,1fr)">
-      <div class="icard"><span class="icard__ico"><?php echo itc_icon('medal',22); ?></span><div><b>Chi phí vừa phải</b><p>Năm đầu hệ tiếng chỉ từ ~150 triệu, thấp hơn nhiều du học Âu – Mỹ.</p></div></div>
-      <div class="icard"><span class="icard__ico"><?php echo itc_icon('network',22); ?></span><div><b>Làm thêm 28 giờ/tuần</b><p>Du học sinh được làm thêm hợp pháp, giảm đáng kể gánh nặng tài chính.</p></div></div>
+      <div class="icard"><span class="icard__ico"><?php echo itc_icon('medal',22); ?></span><div><b>Lộ trình rõ ràng</b><p>Từ trường tiếng đến senmon, đại học - từng bước minh bạch, dễ theo.</p></div></div>
+      <div class="icard"><span class="icard__ico"><?php echo itc_icon('network',22); ?></span><div><b>Làm thêm 28 giờ/tuần</b><p>Du học sinh được làm thêm hợp pháp, tích lũy kinh nghiệm và thu nhập.</p></div></div>
       <div class="icard"><span class="icard__ico"><?php echo itc_icon('cap',22); ?></span><div><b>Bằng cấp toàn cầu</b><p>Giá trị bằng cấp được công nhận rộng rãi, mở ra cơ hội nghề nghiệp.</p></div></div>
       <div class="icard"><span class="icard__ico"><?php echo itc_icon('plane',22); ?></span><div><b>Cơ hội ở lại làm việc</b><p>Chuyển sang visa lao động sau tốt nghiệp, hướng tới định cư lâu dài.</p></div></div>
       <div class="icard"><span class="icard__ico"><?php echo itc_icon('shield',22); ?></span><div><b>An toàn, kỷ luật</b><p>Nhật Bản nổi tiếng an ninh tốt, giúp phụ huynh yên tâm khi con đi xa.</p></div></div>
@@ -90,11 +90,31 @@ itc_page_hero('Du học Nhật Bản', 'Môi trường kỷ luật, bằng cấp
   </div>
 </section>
 
-<!-- ĐIỀU KIỆN + CHI PHÍ -->
+<!-- TRƯỜNG NHẬT BẢN TUYỂN SINH -->
 <section class="section">
   <div class="wrap">
     <div class="section-head section-head--center reveal">
-      <span class="kicker">Điều kiện &amp; chi phí</span>
+      <span class="kicker">Trường tuyển sinh</span>
+      <h2>Một số trường Nhật Bản tiêu biểu</h2>
+      <p class="lead">Trường tiếng, senmon và đại học có chương trình tiếp nhận du học sinh Việt Nam mà ITC hỗ trợ làm hồ sơ. Liên hệ ITC để nhận lộ trình trường phù hợp với bạn.</p>
+    </div>
+    <div class="icards reveal" data-delay="1" style="grid-template-columns:repeat(3,1fr)">
+      <div class="icard"><span class="icard__ico"><?php echo itc_icon('doc',22); ?></span><div><b>Học viện Nhật ngữ ISI</b><p>Tokyo · Nagano · Kyoto · trường tiếng lớn, nhiều cơ sở, hỗ trợ học lên cao.</p></div></div>
+      <div class="icard"><span class="icard__ico"><?php echo itc_icon('doc',22); ?></span><div><b>Trường Nhật ngữ Akamonkai</b><p>Tokyo · lâu đời, tỉ lệ học viên lên đại học &amp; senmon cao.</p></div></div>
+      <div class="icard"><span class="icard__ico"><?php echo itc_icon('doc',22); ?></span><div><b>Học viện Nhật ngữ Kudan</b><p>Tokyo · mạnh luyện thi lên đại học / senmon, lớp quy mô nhỏ.</p></div></div>
+      <div class="icard"><span class="icard__ico"><?php echo itc_icon('cap',22); ?></span><div><b>ĐH Waseda</b><p>Tokyo · đại học danh tiếng, nhiều chương trình quốc tế và học bổng.</p></div></div>
+      <div class="icard"><span class="icard__ico"><?php echo itc_icon('cap',22); ?></span><div><b>ĐH Ritsumeikan</b><p>Kyoto · Osaka · mạnh quốc tế, kinh tế, CNTT, đông du học sinh.</p></div></div>
+      <div class="icard"><span class="icard__ico"><?php echo itc_icon('cap',22); ?></span><div><b>ĐH Teikyo</b><p>Tokyo · đa ngành, tiếp nhận du học sinh, hỗ trợ định hướng nghề.</p></div></div>
+    </div>
+    <p style="text-align:center;margin-top:22px;color:var(--muted);font-size:.92rem">* Danh sách mang tính tham khảo. ITC hỗ trợ hồ sơ nhiều trường khác - liên hệ để được tư vấn trường phù hợp với bạn.</p>
+  </div>
+</section>
+
+<!-- ĐIỀU KIỆN -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <span class="kicker">Điều kiện du học</span>
       <h2>Cần chuẩn bị những gì?</h2>
     </div>
     <div class="split2 reveal" data-delay="1">
@@ -110,20 +130,21 @@ itc_page_hero('Du học Nhật Bản', 'Môi trường kỷ luật, bằng cấp
         </ul>
       </div>
       <div class="panel">
-        <h3><?php echo itc_icon('doc',20); ?> Chi phí tham khảo (năm đầu)</h3>
+        <h3><?php echo itc_icon('doc',20); ?> Hồ sơ cần chuẩn bị</h3>
         <ul class="ticks">
-          <li><?php echo itc_icon('check',18); ?> Hệ tiếng Nhật <b>chỉ từ ~150 triệu</b></li>
-          <li><?php echo itc_icon('check',18); ?> Hệ Senmon / Cao đẳng &amp; Đại học cao hơn tùy trường</li>
-          <li><?php echo itc_icon('check',18); ?> Từ năm 2, thu nhập làm thêm bù phần lớn sinh hoạt phí</li>
+          <li><?php echo itc_icon('check',18); ?> Học bạ &amp; bằng tốt nghiệp (dịch thuật, công chứng)</li>
+          <li><?php echo itc_icon('check',18); ?> Chứng chỉ tiếng Nhật (N5 trở lên) hoặc giờ học tiếng</li>
+          <li><?php echo itc_icon('check',18); ?> Hộ chiếu, ảnh thẻ &amp; giấy khám sức khỏe</li>
+          <li><?php echo itc_icon('check',18); ?> Hồ sơ chứng minh tài chính theo yêu cầu Cục XNC Nhật</li>
         </ul>
-        <p class="price-note">Con số mang tính tham khảo, tùy vùng &amp; trường - <a href="#register" style="color:var(--blue)">liên hệ ITC để nhận báo giá chính xác</a>.</p>
+        <p class="price-note">ITC hỗ trợ hoàn thiện hồ sơ &amp; xin tư cách lưu trú (COE) - <a href="#register" style="color:var(--blue)">liên hệ để được hướng dẫn chi tiết</a>.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HỌC BỔNG -->
-<section class="section section--alt">
+<section class="section">
   <div class="wrap">
     <div class="section-head section-head--center reveal">
       <span class="kicker">Học bổng</span>
@@ -156,14 +177,14 @@ itc_page_hero('Du học Nhật Bản', 'Môi trường kỷ luật, bằng cấp
 
 <?php
 itc_faq(itc_faq_items('du-hoc-nhat-ban', [
-  ['Du học Nhật Bản cần bao nhiêu tiền?', 'Năm đầu hệ tiếng Nhật chỉ từ khoảng 150 triệu đồng, gồm học phí, sinh hoạt phí và chi phí làm hồ sơ. Từ năm thứ hai, thu nhập làm thêm có thể bù đắp phần lớn sinh hoạt phí. Để có con số chính xác theo trường, hãy liên hệ ITC qua 0985 653 868.'],
+  ['Du học Nhật Bản nên chọn trường nào?', 'ITC hỗ trợ apply trường tiếng, senmon và đại học Nhật Bản tiếp nhận du học sinh Việt Nam. Tùy trình độ tiếng, ngành và định hướng, ITC tư vấn lộ trình trường phù hợp - từ trường tiếng uy tín đến đại học danh tiếng.'],
   ['Điều kiện du học Nhật Bản là gì?', 'Cơ bản gồm: độ tuổi 18 – dưới 30, tốt nghiệp THPT với điểm trung bình từ 5.0 (nhiều trường ưu tiên 6.0+), có chứng chỉ hoặc tối thiểu 150 giờ học tiếng Nhật, và chứng minh tài chính theo yêu cầu. ITC sẽ đánh giá hồ sơ miễn phí cho bạn.'],
-  ['Du học Nhật Bản có được đi làm thêm không?', 'Có. Du học sinh được làm thêm hợp pháp tối đa 28 giờ/tuần trong kỳ học và nhiều hơn vào kỳ nghỉ. Với mức lương theo giờ tại Nhật, bạn có thể tự trang trải phần lớn sinh hoạt phí nếu sắp xếp thời gian hợp lý.'],
+  ['Du học Nhật Bản có được đi làm thêm không?', 'Có. Du học sinh được làm thêm hợp pháp tối đa 28 giờ/tuần trong kỳ học và nhiều hơn vào kỳ nghỉ, vừa rèn kỹ năng vừa có thêm thu nhập. ITC tư vấn cách cân đối việc làm thêm để không ảnh hưởng tới việc học.'],
   ['Không biết tiếng Nhật có du học được không?', 'Bạn cần học tiếng trước khi đi, tối thiểu khoảng 150 giờ hoặc đạt chứng chỉ N5. ITC đào tạo tiếng Nhật ngay tại Thái Bình, giúp bạn vừa đáp ứng điều kiện vừa tăng tỉ lệ đậu visa.'],
   ['Du học Nhật Bản mất bao lâu?', 'Tùy hệ: trường tiếng 1 – 2 năm, trường nghề Senmon 2 – 3 năm, đại học 4 năm. Phần lớn học viên đi theo lộ trình học tiếng trước rồi học lên hệ chuyên sâu.'],
   ['Sau khi tốt nghiệp có được ở lại Nhật làm việc không?', 'Có. Học viên tốt nghiệp với tiếng Nhật tốt có thể chuyển sang visa lao động (kỹ sư, nhân văn, kỹ năng đặc định) để làm việc lâu dài, mở ra cơ hội định cư.'],
   ['ITC ở Thái Bình hỗ trợ những gì cho du học sinh?', 'ITC hỗ trợ trọn gói: tư vấn định hướng, đào tạo tiếng Nhật, làm hồ sơ, xin tư cách lưu trú và visa, hỗ trợ trước bay. Học viên Thái Bình và lân cận không phải đi nhiều nơi.'],
-  ['Nên chọn du học Nhật Bản hay Đài Loan?', 'Tùy mục tiêu. Nhật Bản phù hợp bạn muốn lộ trình dài hạn, thu nhập làm thêm cao và cơ hội định cư. Du học Đài Loan thường chi phí mềm hơn. ITC tư vấn cả hai để bạn chọn hướng phù hợp nhất.'],
+  ['Nên chọn du học Nhật Bản hay Đài Loan?', 'Tùy mục tiêu. Nhật Bản phù hợp bạn muốn lộ trình dài hạn, thu nhập làm thêm tốt và cơ hội định cư. Đài Loan mạnh về kỹ thuật, công nghệ và môi trường gần gũi. ITC tư vấn cả hai để bạn chọn hướng phù hợp nhất.'],
 ]));
 itc_related_articles('duhoc-nhatban', 'Cẩm nang du học Nhật Bản');
 itc_register_section('Bắt đầu hành trình du học Nhật Bản của bạn', 'Để lại thông tin, ITC sẽ gọi lại tư vấn miễn phí trong vòng 24 giờ và xây lộ trình phù hợp với năng lực, tài chính của bạn.', 'Du học Nhật Bản');

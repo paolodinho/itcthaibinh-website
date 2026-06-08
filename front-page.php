@@ -1,374 +1,192 @@
 <?php
 /**
- * Front Page - Trang chủ ITC Thái Bình (v7 - bám layout taiwaneduconsult.com)
- * Royal blue + đỏ · hero ảnh full-bleed + overlay · khối số màu · blue split
+ * front-page.php - Trang chủ ITC theo bố cục sharingtaiwan.vn (màu ITC: navy + đỏ).
  */
 if (!defined('ABSPATH')) exit;
 get_header();
-$img = get_template_directory_uri() . '/assets/images';
-$tel = esc_attr(itc_contact('hotline_raw'));
+$img  = get_template_directory_uri() . '/assets/images';
+$tel  = esc_attr(itc_contact('hotline_raw'));
+$hot  = esc_html(itc_contact('hotline'));
 ?>
 
-<!-- ============ HERO (full-bleed ảnh + overlay) ============ -->
-<section class="hero" style="--bg:url('<?php echo esc_url($img.'/hero-wide.jpg'); ?>')">
-  <div class="hero__overlay"></div>
-  <div class="wrap hero__inner">
-    <span class="hero__kicker reveal in"><?php echo itc_icon('star', 15); ?> <?php echo esc_html(itc_mod('itc_hero_kicker', 'Tư vấn du học Đài Loan · Nhật Bản & đào tạo ngoại ngữ')); ?></span>
-    <h1 class="hero__title reveal in" data-delay="1"><?php echo itc_hl(itc_mod('itc_hero_title', 'Chạm tới [r]giảng đường quốc tế[/r][br]- tương lai gần hơn bạn nghĩ')); ?></h1>
-    <p class="hero__sub reveal in" data-delay="2"><?php echo esc_html(itc_mod('itc_hero_sub', 'ITC đồng hành trọn vẹn từ học tiếng, định hướng ngành nghề đến hoàn tất hồ sơ visa - minh bạch chi phí, tận tâm tới ngày bạn nhập học.')); ?></p>
-    <div class="hero__cta reveal in" data-delay="3">
-      <a class="btn btn-red btn-lg" href="#register"><?php echo esc_html(itc_mod('itc_hero_cta', 'Đăng ký tư vấn ngay')); ?> <?php echo itc_icon('arrow', 16); ?></a>
-      <a class="btn btn-ghost btn-lg" href="tel:<?php echo $tel; ?>"><?php echo itc_icon('phone', 17); ?> <?php echo esc_html(itc_contact('hotline')); ?></a>
+<!-- HERO -->
+<section class="clx-hero">
+  <div class="clx-hero__deco" aria-hidden="true"></div>
+  <svg class="clx-hero__skyline" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="rgba(255,255,255,.07)">
+      <rect x="40" y="120" width="70" height="100"/><rect x="120" y="90" width="54" height="130"/>
+      <rect x="184" y="140" width="80" height="80"/><rect x="300" y="60" width="46" height="160"/>
+      <rect x="356" y="110" width="64" height="110"/><rect x="430" y="150" width="90" height="70"/>
+      <rect x="980" y="130" width="80" height="90"/><rect x="1070" y="100" width="54" height="120"/>
+      <rect x="1134" y="150" width="78" height="70"/><rect x="1250" y="80" width="48" height="140"/>
+      <rect x="1308" y="120" width="70" height="100"/>
+      <!-- Taipei 101 -->
+      <path d="M735 220 V70 l-7-10 h6 l-4-26 4-12 4 12-4 26 h6 l-7 10 V220z"/>
+      <rect x="724" y="92" width="34" height="22"/><rect x="722" y="118" width="38" height="22"/>
+      <rect x="720" y="144" width="42" height="24"/><rect x="718" y="172" width="46" height="48"/>
+    </g>
+  </svg>
+  <svg class="clx-hero__plane" viewBox="0 0 120 80" aria-hidden="true">
+    <path d="M4 70 C 30 60,55 50,78 30" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+    <path d="M86 12l4 10 12 3-9 6 1 12-8-7-11 4 5-11-6-9 12 1z" fill="#FF9B96" transform="rotate(18 90 22)"/>
+  </svg>
+  <div class="wrap clx-hero__grid">
+    <div class="clx-hero__content">
+      <span class="clx-hero__kk">Tư vấn du học &amp; đào tạo ngoại ngữ</span>
+      <h1 class="clx-hero__big">DU HỌC<br><span class="r">ĐÀI&nbsp;LOAN · NHẬT&nbsp;BẢN</span></h1>
+      <span class="clx-hero__script">cùng ITC Thái Bình</span>
+      <p class="clx-hero__sub">Đồng hành trọn vẹn từ học tiếng, định hướng ngành nghề đến hoàn tất hồ sơ visa - minh bạch chi phí, tận tâm tới ngày bạn nhập học.</p>
+      <div class="clx-hero__flags"><span>🇻🇳</span><span>🇹🇼</span><span>🇯🇵</span></div>
+      <div class="clx-hero__box">
+        <span>Tư vấn miễn phí ngay:</span>
+        <a href="tel:<?php echo $tel; ?>"><span class="ic"><?php echo itc_icon('phone',18); ?></span> <?php echo $hot; ?></a>
+      </div>
+    </div>
+    <div class="clx-hero__person"><img src="<?php echo esc_url($img.'/hero-person-cut.png'); ?>" alt="Tư vấn viên ITC Thái Bình" width="440" height="560"></div>
+  </div>
+  <div class="clx-hero__strip"><div class="wrap clx-hero__strip-in">
+    <span><?php echo itc_icon('thumb',16); ?> Du học Đài Loan · Nhật Bản - ITC Thái Bình</span>
+    <span><?php echo itc_icon('network',16); ?> itcthaibinh.vn</span>
+    <span><?php echo itc_icon('medal',16); ?> Hơn 2.000 học viên đồng hành</span>
+  </div></div>
+</section>
+
+<!-- VỀ ITC -->
+<section class="clx-sec clx-about">
+  <div class="wrap clx-head reveal">
+    <span class="kk">Về ITC</span>
+    <h2>Hơn 10 năm đồng hành cùng học viên Việt Nam</h2>
+    <p>ITC Group là đơn vị tư vấn du học và đào tạo ngoại ngữ uy tín tại Thái Bình, liên kết với nhiều trường đối tác tại Đài Loan và Nhật Bản. Với hơn 2.000 học viên đã đồng hành, ITC cam kết lộ trình minh bạch, đội ngũ tận tâm và hỗ trợ tới tận ngày nhập học.</p>
+    <a class="clx-more" href="<?php echo esc_url(home_url('/gioi-thieu/')); ?>">Xem thêm về ITC <?php echo itc_icon('arrow',15); ?></a>
+  </div>
+</section>
+
+<!-- 3 CARD DỊCH VỤ -->
+<section class="clx-sec clx-sec--pale">
+  <div class="wrap">
+    <div class="clx-head reveal"><span class="kk">Dịch vụ</span><h2>Du học &amp; ngoại ngữ cùng <span class="u">ITC</span></h2></div>
+    <div class="clx-svc2 reveal" data-delay="1">
+      <div class="clx-svc2__cards">
+        <a class="clx-svc2__card" href="<?php echo esc_url(home_url('/du-hoc-dai-loan/')); ?>"><span class="clx-svc2__ic"><?php echo itc_icon('tower',28); ?></span><b>Du học Đài Loan</b><span class="clx-svc2__l">Tìm hiểu <?php echo itc_icon('arrow',13); ?></span></a>
+        <a class="clx-svc2__card" href="<?php echo esc_url(home_url('/du-hoc-nhat-ban/')); ?>"><span class="clx-svc2__ic"><?php echo itc_icon('fuji',28); ?></span><b>Du học Nhật Bản</b><span class="clx-svc2__l">Tìm hiểu <?php echo itc_icon('arrow',13); ?></span></a>
+        <a class="clx-svc2__card" href="<?php echo esc_url(home_url('/tieng-trung/')); ?>"><span class="clx-svc2__ic"><?php echo itc_icon('cap',28); ?></span><b>Đào tạo ngoại ngữ</b><span class="clx-svc2__l">Tìm hiểu <?php echo itc_icon('arrow',13); ?></span></a>
+      </div>
+      <figure class="clx-svc2__photo"><img src="<?php echo esc_url($img.'/hero-wide.jpg'); ?>" alt="Học viên ITC Thái Bình" loading="lazy"></figure>
     </div>
   </div>
 </section>
 
-<!-- ============ 3 KHỐI ĐIỂM NHẤN ============ -->
-<section class="usp">
-  <div class="wrap usp__grid">
+<!-- ƯU ĐIỂM (xen kẽ ảnh/text) -->
+<section class="clx-sec">
+  <div class="wrap">
+    <div class="clx-head reveal"><span class="kk">Vì sao chọn ITC</span><h2>Điều làm nên <span class="u">sự khác biệt</span></h2></div>
+    <div class="clx-adv reveal" data-delay="1">
     <?php
-    $usp = itc_cards('home-usp') ?: [
-      ['title'=>'Du học không áp lực điểm số','desc'=>'Lộ trình phù hợp năng lực từng học viên, hỗ trợ học tiếng từ mất gốc.'],
-      ['title'=>'Chi phí hợp lý, chất lượng cao','desc'=>'Học bổng tới 100% học phí, vừa học vừa làm hợp pháp tại Đài Loan & Nhật Bản.'],
-      ['title'=>'Tỉ lệ đậu visa 98%','desc'=>'Đội ngũ giàu kinh nghiệm xử lý hồ sơ – phỏng vấn – visa nhanh, chính xác.'],
+    $adv = [
+      ['why-photo.jpg', 'Tư vấn chuyên môn, lộ trình cá nhân hóa', ['Đội ngũ am hiểu thực tế du học, đồng hành ở từng bước.','Tư vấn theo học lực, tài chính và mục tiêu thật của bạn.']],
+      ['about-team.jpg', 'Minh bạch &amp; đồng hành tới khi nhập học', ['Cam kết rõ ràng, ký hợp đồng trách nhiệm.','Hỗ trợ hồ sơ, visa, đón sân bay và ổn định cuộc sống.']],
+      ['gal-8.jpg', 'Hệ sinh thái khép kín tại Thái Bình', ['Học ngoại ngữ &amp; làm hồ sơ du học cùng một nơi.','Mạng lưới trường đối tác rộng tại Đài Loan &amp; Nhật Bản.']],
     ];
-    $colors = ['usp__item--red','usp__item--blue','usp__item--blue2'];
-    foreach (array_slice($usp,0,3) as $i=>$c) {
-      printf('<article class="usp__item %s reveal" data-delay="%d"><span class="usp__no">%02d</span><h3>%s</h3><p>%s</p></article>',
-        $colors[$i%3], $i, $i+1, esc_html($c['title']), esc_html($c['desc']));
-    } ?>
+    foreach ($adv as $i => $a): ?>
+    <article class="clx-adv__col">
+      <span class="clx-adv__no"><?php printf('%02d', $i + 1); ?></span>
+      <h3><?php echo $a[1]; ?></h3>
+      <figure class="clx-adv__media"><img src="<?php echo esc_url($img.'/'.$a[0]); ?>" alt="<?php echo esc_attr(wp_strip_all_tags($a[1])); ?>" loading="lazy"></figure>
+      <ul><?php foreach ($a[2] as $li): ?><li><?php echo itc_icon('check',18); ?> <span><?php echo $li; ?></span></li><?php endforeach; ?></ul>
+    </article>
+    <?php endforeach; ?>
+    </div>
   </div>
 </section>
 
-<!-- ============ DỊCH VỤ (card ảnh overlay) ============ -->
-<section class="section services">
+<!-- LỘ TRÌNH -->
+<section class="clx-sec clx-sec--pale">
   <div class="wrap">
-    <div class="section-head section-head--center reveal">
-      <span class="kicker">Dịch vụ của ITC</span>
-      <h2>Tất cả những gì bạn cần cho<br>hành trình du học thành công</h2>
-    </div>
-    <div class="svc__grid">
-      <?php
-      $svc = itc_cards('home-services') ?: [
-        ['icon'=>'tower','title'=>'Du học Đài Loan','desc'=>'Hệ đại học, thạc sĩ, hệ tiếng Hoa - học bổng & việc làm thêm hấp dẫn.','img'=>$img.'/study-taiwan.jpg','link'=>'/du-hoc-dai-loan/'],
-        ['icon'=>'fuji','title'=>'Du học Nhật Bản','desc'=>'Hệ trường tiếng, senmon, đại học - bằng cấp giá trị toàn cầu, vừa học vừa làm.','img'=>$img.'/study-japan.jpg','link'=>'/du-hoc-nhat-ban/'],
-        ['icon'=>'cap','title'=>'Đào tạo ngoại ngữ','desc'=>'Tiếng Trung (HSK·TOCFL) & tiếng Nhật (JLPT) - cam kết đầu ra theo cấp độ.','img'=>$img.'/lang-chinese.jpg','link'=>'/tieng-trung/'],
-      ];
-      foreach ($svc as $i=>$c) {
-        $cimg = !empty($c['img']) ? $c['img'] : $img.'/study-taiwan.jpg';
-        $link = !empty($c['link']) ? $c['link'] : '#register';
-        printf('<article class="svc reveal" data-delay="%d"><img src="%s" alt="%s" loading="lazy"><div class="svc__overlay"></div><div class="svc__body"><span class="svc__ico">%s</span><h3>%s</h3><p>%s</p><a class="svc__link" href="%s">Tìm hiểu thêm %s</a></div></article>',
-          $i, esc_url($cimg), esc_attr($c['title']), itc_icon($c['icon']?:'star',22), esc_html($c['title']), esc_html($c['desc']), esc_url($link), itc_icon('arrow',15));
-      } ?>
+    <div class="clx-head reveal"><span class="kk">Lộ trình</span><h2>4 bước du học cùng ITC</h2></div>
+    <div class="clx-road reveal" data-delay="1">
+      <span class="clx-road__line" aria-hidden="true"></span>
+      <?php $road = [['compass','Tư vấn &amp; định hướng','Đánh giá năng lực, đề xuất lộ trình phù hợp.'],['cap','Học tiếng &amp; luyện thi','Đào tạo ngoại ngữ đạt chuẩn đầu vào.'],['doc','Hồ sơ &amp; visa','Chuẩn bị hồ sơ, phỏng vấn, xử lý visa.'],['plane','Lên đường &amp; hỗ trợ','Đón sân bay, ổn định &amp; đồng hành.']];
+      foreach ($road as $i => $r): ?>
+      <div class="clx-road__s<?php echo $i === count($road)-1 ? ' clx-road__s--end' : ''; ?>"><span class="clx-road__ic"><?php echo itc_icon($r[0],28); ?><b><?php echo $i + 1; ?></b></span><div class="clx-road__cap"><h3><?php echo $r[1]; ?></h3><p><?php echo $r[2]; ?></p></div></div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
 
-<!-- ============ CHƯƠNG TRÌNH DU HỌC (các hệ) ============ -->
-<section class="section section--alt">
+<!-- HOẠT ĐỘNG (band navy) -->
+<section class="clx-act">
   <div class="wrap">
-    <div class="section-head section-head--center reveal">
-      <span class="kicker">Chương trình du học</span>
-      <h2>Đa dạng hệ du học - chọn đúng lộ trình của bạn</h2>
-      <p class="lead">Từ học bổng toàn phần đến hệ vừa học vừa làm tự trang trải chi phí - ITC tư vấn hệ phù hợp năng lực &amp; ngân sách của bạn.</p>
+    <div class="clx-head reveal"><span class="kk">Khoảnh khắc ITC</span><h2>Các hoạt động của ITC</h2></div>
+    <div class="clx-gal reveal" data-delay="1">
+      <?php foreach (['gal-1.jpg','gal-2.jpg','gal-4.jpg','gal-3.jpg','gal-5.jpg','gal-6.jpg','gal-9.jpg','gal-11.jpg'] as $g): ?>
+      <figure><img src="<?php echo esc_url($img.'/'.$g); ?>" alt="Hoạt động ITC" loading="lazy"></figure>
+      <?php endforeach; ?>
     </div>
-    <div class="progs reveal" data-delay="1">
-      <?php
-      $progs = itc_cards('home-programs') ?: [
-        ['icon'=>'cap','title'=>'Hệ ngôn ngữ','desc'=>'Học tiếng Trung/Nhật tại bản địa trước khi vào chuyên ngành - nền tảng vững để săn học bổng.'],
-        ['icon'=>'network','title'=>'Hệ vừa học vừa làm','desc'=>'Đặc trưng Đài Loan: vừa học đại học vừa thực tập có lương, giảm mạnh gánh nặng tài chính.'],
-        ['icon'=>'tower','title'=>'Đại học & Cao đẳng','desc'=>'Hệ chính quy 2-4 năm, bằng cấp giá trị quốc tế tại các trường top Đài Loan, Nhật Bản.'],
-        ['icon'=>'medal','title'=>'Sau đại học','desc'=>'Thạc sĩ, tiến sĩ - nhiều suất học bổng MOE, MEXT và học bổng trường dành cho hệ này.'],
-        ['icon'=>'star','title'=>'Săn học bổng','desc'=>'ITC định hướng hồ sơ, luyện phỏng vấn để tối đa cơ hội nhận học bổng bán phần - toàn phần.'],
-        ['icon'=>'shield','title'=>'Dự bị / Chuyển tiếp','desc'=>'Hệ dự bị, 1+4, 2+2 cho học sinh chưa đủ điều kiện đầu vào hoặc muốn lộ trình linh hoạt.'],
-      ];
-      foreach ($progs as $c)
-        printf('<article class="prog"><span class="prog__ico">%s</span><h3>%s</h3><p>%s</p></article>',
-          itc_icon($c['icon']?:'star',24), esc_html($c['title']), esc_html($c['desc'])); ?>
-    </div>
-    <p style="text-align:center;margin-top:34px"><a class="btn btn-blue btn-lg" href="#register">Tư vấn hệ phù hợp với bạn <?php echo itc_icon('arrow',16); ?></a></p>
+    <div style="text-align:center;margin-top:30px"><a class="twn-btn twn-btn--white twn-btn--lg" href="<?php echo esc_url(home_url('/thu-vien-anh/')); ?>">Xem thư viện ảnh <?php echo itc_icon('arrow',16); ?></a></div>
   </div>
 </section>
 
-<!-- ============ VÌ SAO CHỌN ITC (blue split + ảnh) ============ -->
-<section class="why">
-  <div class="why__media">
-    <img src="<?php echo esc_url($img.'/why-photo.jpg?v='.ITC_VER); ?>" alt="Đội ngũ ITC Thái Bình" width="860" height="1368" loading="lazy">
-  </div>
-  <div class="why__panel">
-    <div class="why__inner reveal">
-      <span class="kicker kicker--light">Vì sao chọn ITC?</span>
-      <h2>Lý do phụ huynh &amp; học viên<br>tin chọn ITC Thái Bình</h2>
-      <ul class="why__list">
-        <?php
-        $why = itc_cards('home-why') ?: [
-          ['title'=>'Tư vấn chuyên môn cao','desc'=>'Đội ngũ am hiểu thực tế du học, đồng hành ở từng bước của hành trình.'],
-          ['title'=>'Quy trình minh bạch','desc'=>'Chi phí rõ ràng từ đầu, ký hợp đồng trách nhiệm, tỉ lệ đậu visa cao.'],
-          ['title'=>'Cơ hội toàn cầu','desc'=>'Hơn 50 trường đối tác tại Đài Loan & Nhật Bản, mở ra sự nghiệp quốc tế.'],
-          ['title'=>'Đồng hành tới khi nhập học','desc'=>'Hỗ trợ hồ sơ, visa, đón sân bay và ổn định cuộc sống nơi xứ người.'],
-        ];
-        foreach ($why as $c)
-          printf('<li><span class="why__check">%s</span><div><b>%s</b><p>%s</p></div></li>',
-            itc_icon('check',16), esc_html($c['title']), esc_html($c['desc'])); ?>
-      </ul>
-      <a class="btn btn-red btn-lg" href="#register">Nhận tư vấn miễn phí <?php echo itc_icon('arrow', 16); ?></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SO SÁNH ĐÀI LOAN vs NHẬT (card lật) ============ -->
-<section class="section section--alt">
+<!-- CẢM NGHĨ -->
+<section class="clx-sec">
   <div class="wrap">
-    <div class="section-head section-head--center reveal">
-      <span class="kicker">Phân vân chọn nước?</span>
-      <h2>Đài Loan hay Nhật Bản - đâu là lựa chọn của bạn?</h2>
-      <p class="lead">Di chuột (hoặc chạm) vào mỗi thẻ để lật xem nhanh chi phí, học bổng và cơ hội làm thêm. ITC tư vấn khách quan cả hai thị trường.</p>
-    </div>
-    <div class="cmp reveal" data-delay="1">
-      <div class="cmp__card" data-flip tabindex="0">
-        <div class="cmp__inner">
-          <div class="cmp__face cmp__front"><span class="cmp__flag">🇹🇼</span><h3>Du học Đài Loan</h3><span class="cmp__hint">Lật để xem chi tiết →</span></div>
-          <div class="cmp__face cmp__back">
-            <h4>Chi phí &amp; cơ hội</h4>
-            <ul>
-              <li><?php echo itc_icon('medal',17); ?><span>Chi phí <b>chỉ từ ~150tr/năm</b> - rẻ hơn Nhật rõ rệt</span></li>
-              <li><?php echo itc_icon('cap',17); ?><span>Học bổng <b>MOE, ICDF toàn phần</b></span></li>
-              <li><?php echo itc_icon('network',17); ?><span>Được làm thêm hợp pháp</span></li>
-              <li><?php echo itc_icon('doc',17); ?><span>Học bằng <b>tiếng Trung hoặc tiếng Anh</b></span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="cmp__card" data-flip tabindex="0">
-        <div class="cmp__inner">
-          <div class="cmp__face cmp__front"><span class="cmp__flag">🇯🇵</span><h3>Du học Nhật Bản</h3><span class="cmp__hint">Lật để xem chi tiết →</span></div>
-          <div class="cmp__face cmp__back">
-            <h4>Chi phí &amp; cơ hội</h4>
-            <ul>
-              <li><?php echo itc_icon('medal',17); ?><span>Chi phí <b>chỉ từ ~160tr/năm</b> tùy thành phố</span></li>
-              <li><?php echo itc_icon('cap',17); ?><span>Học bổng <b>MEXT, JASSO</b></span></li>
-              <li><?php echo itc_icon('network',17); ?><span>Làm thêm hợp pháp <b>28h/tuần</b></span></li>
-              <li><?php echo itc_icon('doc',17); ?><span>Đầu vào <b>JLPT N5–N4</b></span></li>
-            </ul>
-          </div>
-        </div>
+    <div class="clx-head reveal"><span class="kk">Cảm nghĩ học viên</span><h2>Học viên nói gì về ITC</h2></div>
+    <?php
+    $rv = [
+      ['student-1.jpg','Nguyễn Thị Hiền','Du học Đài Loan - Hệ Ngôn ngữ','Em mất gốc tiếng Trung, nhờ thầy cô ITC kèm sát mà thi đậu TOCFL và nhận học bổng Đài Loan.'],
+      ['student-2.jpg','Trần Quỳnh Anh','Du học Nhật Bản - Hệ Thạc sĩ','Quy trình rõ ràng, minh bạch. Gia đình em yên tâm khi cho con đi Nhật vì ITC hỗ trợ tới tận nơi ở.'],
+      ['student-3.jpg','Phạm Minh Tuấn','Học viên tiếng Nhật JLPT N4','Lớp tiếng Nhật ở ITC vui và chắc kiến thức. Em đã đạt JLPT N4 và chuẩn bị bay sang Nhật.'],
+    ]; ?>
+    <div class="clx-testi reveal" data-delay="1">
+      <figure class="clx-testi__lead"><img src="<?php echo esc_url($img.'/'.$rv[0][0]); ?>" alt="<?php echo esc_attr($rv[0][1]); ?>" loading="lazy"><figcaption><b><?php echo $rv[0][1]; ?></b><span><?php echo $rv[0][2]; ?></span></figcaption></figure>
+      <div class="clx-testi__list">
+        <?php foreach ($rv as $r): ?>
+        <article class="clx-q"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p><?php echo $r[3]; ?></p><small><b><?php echo $r[1]; ?></b> · <?php echo $r[2]; ?></small></article>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ QUY TRÌNH - Hộ chiếu đóng dấu ============ -->
-<section class="section process">
+<!-- ĐỐI TÁC -->
+<section class="clx-sec clx-sec--pale">
   <div class="wrap">
-    <div class="section-head section-head--center reveal">
-      <span class="kicker">Quy trình</span>
-      <h2>4 bước đơn giản để du học cùng ITC</h2>
-      <p class="lead">ITC lo trọn từ A đến Z - bạn chỉ cần đi theo lộ trình 4 bước rõ ràng dưới đây.</p>
-    </div>
-    <div class="steps reveal" data-delay="1">
-      <?php
-      $proc = itc_cards('home-process') ?: [
-        ['icon'=>'compass','title'=>'Tư vấn & định hướng','desc'=>'Lắng nghe mục tiêu, đánh giá năng lực và đề xuất lộ trình phù hợp.'],
-        ['icon'=>'cap','title'=>'Học tiếng & luyện thi','desc'=>'Đào tạo ngoại ngữ đạt chuẩn đầu vào của trường và kỳ thi chứng chỉ.'],
-        ['icon'=>'doc','title'=>'Hồ sơ & visa','desc'=>'Chuẩn bị hồ sơ, phỏng vấn và xử lý thủ tục visa nhanh, chính xác.'],
-        ['icon'=>'plane','title'=>'Lên đường & hỗ trợ','desc'=>'Đón sân bay, ổn định chỗ ở và đồng hành suốt thời gian học.'],
-      ];
-      foreach ($proc as $i=>$c)
-        printf('<article class="step"><div class="step__top"><span class="step__ico">%s</span><span class="step__num">%02d</span></div><span class="step__label">Bước %02d</span><h3>%s</h3><p>%s</p></article>',
-          itc_icon($c['icon']?:'star',24), $i+1, $i+1, esc_html($c['title']), esc_html($c['desc'])); ?>
-    </div>
-  </div>
-</section>
-
-<!-- ============ KHOẢNH KHẮC (gallery ảnh thật) ============ -->
-<section class="section section--alt gallery">
-  <div class="wrap">
-    <div class="section-head section-head--center reveal">
-      <span class="kicker">Khoảnh khắc tại ITC</span>
-      <h2>Hành trình thật của học viên ITC</h2>
-    </div>
-    <div class="gallery__masonry reveal" data-delay="1">
-      <?php
-      $gal = [
-        ['gal-1.jpg','Học viên ITC xếp hình bản đồ Việt Nam'],
-        ['gal-2.jpg','Tiễn học viên lên đường du học'],
-        ['gal-4.jpg','Học viên ITC đạt chứng chỉ'],
-        ['gal-3.jpg','Lớp học tại ITC'],
-        ['gal-8.jpg','Đội ngũ &amp; học viên ITC Thái Bình'],
-        ['gal-5.jpg','Buổi gặp gỡ phụ huynh tại ITC'],
-        ['gal-9.jpg','Học viên ITC nhận kết quả'],
-        ['gal-6.jpg','Tiễn học viên tại sân bay'],
-        ['gal-11.jpg','Học viên ITC với chứng chỉ'],
-        ['gal-7.jpg','Buổi học &amp; định hướng du học'],
-        ['gal-10.jpg','Tư vấn du học tại ITC'],
-      ];
-      foreach ($gal as $g) {
-        printf('<figure class="gitem"><img src="%s" alt="%s" loading="lazy"></figure>',
-          esc_url($img.'/'.$g[0]), esc_attr($g[1]));
-      }
-      ?>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TRƯỜNG ĐỐI TÁC ============ -->
-<section class="section partners">
-  <div class="wrap">
-    <div class="section-head section-head--center reveal">
-      <span class="kicker">Mạng lưới đối tác</span>
-      <h2>Hệ thống trường đối tác tại Đài Loan &amp; Nhật Bản</h2>
-      <p class="lead">ITC hợp tác trực tiếp với các trường - đảm bảo hồ sơ, học bổng và suất học chính thống, minh bạch.</p>
-    </div>
-    <?php $partners = itc_partners(); if ($partners): ?>
+    <div class="clx-head reveal"><span class="kk">Đối tác</span><h2>Mạng lưới trường đối tác của ITC</h2><p>Hợp tác cùng nhiều trường đại học &amp; học viện tại Đài Loan và Nhật Bản.</p></div>
+    <?php $partners = function_exists('itc_partners') ? itc_partners() : []; ?>
+    <?php if ($partners): ?>
     <div class="logos reveal" data-delay="1">
-      <?php foreach ($partners as $p):
-        $tag = !empty($p['link']) ? 'a' : 'span'; $href = !empty($p['link']) ? ' href="'.esc_url($p['link']).'" target="_blank" rel="noopener"' : ''; ?>
-      <<?php echo $tag.$href; ?> class="logo" title="<?php echo esc_attr($p['name']); ?>"><img src="<?php echo esc_url($p['logo']); ?>" alt="<?php echo esc_attr($p['name']); ?>" loading="lazy"></<?php echo $tag; ?>>
+      <?php foreach ($partners as $p): ?>
+      <div class="logo"><img src="<?php echo esc_url($p['logo']); ?>" alt="<?php echo esc_attr($p['name']); ?>" loading="lazy"></div>
       <?php endforeach; ?>
     </div>
     <?php else: ?>
-    <div class="pnet reveal" data-delay="1">
-      <div class="pnet__item"><span class="pnet__ico"><?php echo itc_icon('tower',22); ?></span><div><b>Trường top đầu</b><p>Đại học công lập &amp; tư thục uy tín tại Đài Loan, Nhật Bản.</p></div></div>
-      <div class="pnet__item"><span class="pnet__ico"><?php echo itc_icon('compass',22); ?></span><div><b>Trải khắp khu vực</b><p>Trường ở miền Bắc - Trung - Nam - Đông Đài Loan &amp; nhiều tỉnh Nhật.</p></div></div>
-      <div class="pnet__item"><span class="pnet__ico"><?php echo itc_icon('cap',22); ?></span><div><b>Đủ mọi hệ học</b><p>Từ trường tiếng, đại học đến sau đại học - nhiều suất học bổng.</p></div></div>
-      <div class="pnet__item"><span class="pnet__ico"><?php echo itc_icon('shield',22); ?></span><div><b>Hợp tác chính thống</b><p>Hồ sơ qua kênh trường trực tiếp, minh bạch và an toàn.</p></div></div>
+    <div class="clx-pt reveal" data-delay="1">
+      <div><b>Đài Loan</b><span>NTUST · Ming Chuan · Chien Hsin · Feng Chia · I-Shou · Asia University…</span></div>
+      <div><b>Nhật Bản</b><span>ISI · Akamonkai · Kudan · Waseda · Ritsumeikan · Teikyo…</span></div>
     </div>
     <?php endif; ?>
   </div>
 </section>
 
-<!-- ============ CẢM NGHĨ ============ -->
-<section class="section testi">
+<!-- TIN TỨC -->
+<section class="clx-sec">
   <div class="wrap">
-    <div class="section-head section-head--center reveal">
-      <span class="kicker">Cảm nghĩ học viên</span>
-      <h2>Học viên nói gì về ITC</h2>
-    </div>
-    <div class="tgrid">
-      <?php
-      // Cảm nghĩ lấy từ CPT (Cảm nghĩ HV); nếu chưa có → dùng mẫu mặc định
-      $revs = new WP_Query(['post_type'=>'itc_review','posts_per_page'=>6,'orderby'=>'menu_order date','order'=>'ASC']);
-      if ($revs->have_posts()) :
-        $rd=0; while ($revs->have_posts()) : $revs->the_post();
-          $avatar = has_post_thumbnail() ? get_the_post_thumbnail_url(null,'thumbnail') : $img.'/student-'.(($rd%3)+1).'.jpg';
-          $role = get_post_meta(get_the_ID(),'_itc_role',true); ?>
-      <article class="tcard reveal" data-delay="<?php echo $rd++; ?>">
-        <div class="tcard__stars" aria-label="5 sao">★★★★★</div>
-        <p class="tcard__quote"><?php echo esc_html(wp_strip_all_tags(get_the_content())); ?></p>
-        <div class="tcard__person">
-          <img src="<?php echo esc_url($avatar); ?>" alt="<?php the_title_attribute(); ?>" width="54" height="54" loading="lazy">
-          <div><b><?php the_title(); ?></b><span><?php echo esc_html($role); ?></span></div>
-        </div>
+    <div class="clx-head reveal"><span class="kk">Tin tức</span><h2>Tin tức - Sự kiện</h2></div>
+    <div class="clx-news reveal" data-delay="1">
+      <?php $n = new WP_Query(['post_type'=>'post','posts_per_page'=>3,'ignore_sticky_posts'=>true]);
+      if ($n->have_posts()): while ($n->have_posts()): $n->the_post(); ?>
+      <article class="clx-post">
+        <a class="clx-post__m" href="<?php the_permalink(); ?>"><img src="<?php echo esc_url(itc_post_image_url()); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"></a>
+        <div class="clx-post__b"><span class="clx-post__d"><?php echo get_the_date('d/m/Y'); ?></span><h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3><p><?php echo esc_html(wp_trim_words(get_the_excerpt(),20)); ?></p></div>
       </article>
-      <?php endwhile; wp_reset_postdata(); else :
-        $fb = [
-          ['Em mất gốc tiếng Trung, nhờ thầy cô ITC kèm sát mà thi đậu TOCFL và nhận học bổng Đài Loan. Cảm ơn trung tâm rất nhiều!','Nguyễn Thị Hiền','Du học Đài Loan - Hệ Ngôn ngữ','student-1.jpg'],
-          ['Quy trình rõ ràng, chi phí minh bạch. Gia đình em yên tâm khi cho con đi Nhật vì ITC hỗ trợ tới tận nơi ở.','Trần Quỳnh Anh','Du học Nhật Bản - Hệ Thạc sĩ','student-2.jpg'],
-          ['Lớp tiếng Nhật ở ITC vui và chắc kiến thức. Em đã đạt JLPT N4 và chuẩn bị bay sang Nhật học tiếp.','Phạm Minh Tuấn','Học viên tiếng Nhật JLPT N4','student-3.jpg'],
-        ];
-        foreach ($fb as $i=>$t) : ?>
-      <article class="tcard reveal" data-delay="<?php echo $i; ?>">
-        <div class="tcard__stars" aria-label="5 sao">★★★★★</div>
-        <p class="tcard__quote"><?php echo esc_html($t[0]); ?></p>
-        <div class="tcard__person">
-          <img src="<?php echo esc_url($img.'/'.$t[3]); ?>" alt="<?php echo esc_attr($t[1]); ?>" width="54" height="54" loading="lazy">
-          <div><b><?php echo esc_html($t[1]); ?></b><span><?php echo esc_html($t[2]); ?></span></div>
-        </div>
-      </article>
-      <?php endforeach; endif; ?>
+      <?php endwhile; wp_reset_postdata(); else: for ($k=1;$k<=3;$k++): ?>
+      <article class="clx-post"><div class="clx-post__m"><img src="<?php echo esc_url($img.'/act-'.(($k%6)+1).'.jpg'); ?>" alt="Tin tức ITC" loading="lazy"></div><div class="clx-post__b"><span class="clx-post__d"><?php echo date('d/m/Y'); ?></span><h3>Tin tức &amp; sự kiện ITC</h3><p>Cập nhật hoạt động, học bổng và thông tin du học mới nhất từ ITC.</p></div></article>
+      <?php endfor; endif; ?>
     </div>
+    <div style="text-align:center;margin-top:30px"><a class="twn-btn twn-btn--red twn-btn--lg" href="<?php echo esc_url(home_url('/tin-tuc-su-kien/')); ?>">Xem tất cả tin tức <?php echo itc_icon('arrow',16); ?></a></div>
   </div>
 </section>
 
-<!-- ============ TIN TỨC ============ -->
-<?php
-$news = new WP_Query(['post_type' => 'post', 'posts_per_page' => 3, 'ignore_sticky_posts' => true]);
-if ($news->have_posts()) : ?>
-<section class="section section--alt news">
-  <div class="wrap">
-    <div class="section-head section-head--center reveal">
-      <span class="kicker">Tin tức – Sự kiện</span>
-      <h2>Cập nhật mới nhất từ ITC</h2>
-    </div>
-    <div class="posts">
-      <?php $d=0; while ($news->have_posts()) : $news->the_post(); ?>
-      <?php $cat = itc_post_cat(); ?>
-      <article class="pcard reveal" data-delay="<?php echo $d++; ?>">
-        <a class="pcard__media" href="<?php the_permalink(); ?>">
-          <img src="<?php echo esc_url(itc_post_image_url()); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
-          <?php if ($cat) : ?><span class="pcard__cat"><?php echo esc_html($cat->name); ?></span><?php endif; ?>
-        </a>
-        <div class="pcard__body">
-          <span class="pcard__date"><?php echo get_the_date('d/m/Y'); ?></span>
-          <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-          <p><?php echo esc_html(get_the_excerpt()); ?></p>
-          <a class="pcard__more" href="<?php the_permalink(); ?>">Đọc tiếp <?php echo itc_icon('arrow',14); ?></a>
-        </div>
-      </article>
-      <?php endwhile; wp_reset_postdata(); ?>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
+<!-- ĐĂNG KÝ (navy + form) -->
+<?php itc_register_section(); ?>
 
-<!-- ============ CTA BAND (ảnh + overlay) ============ -->
-<section class="ctaband" style="--bg:url('<?php echo esc_url($img.'/cta-wide.jpg'); ?>')">
-  <div class="ctaband__overlay"></div>
-  <div class="wrap ctaband__inner reveal">
-    <h2>Sẵn sàng bắt đầu hành trình du học của bạn?</h2>
-    <p>Để lại thông tin, đội ngũ ITC sẽ gọi lại tư vấn miễn phí trong vòng 24 giờ.</p>
-    <a class="btn btn-red btn-lg" href="#register">Đăng ký tư vấn miễn phí <?php echo itc_icon('arrow', 16); ?></a>
-  </div>
-</section>
-
-<!-- ============ ĐĂNG KÝ ============ -->
-<section class="section register" id="register">
-  <div class="wrap register__grid">
-    <div class="register__text reveal">
-      <span class="kicker">Liên hệ ITC</span>
-      <h2>Để lại thông tin,<br>ITC gọi lại tư vấn miễn phí</h2>
-      <p class="lead">Đội ngũ tư vấn của ITC sẽ liên hệ trong vòng 24 giờ, giải đáp mọi thắc mắc về du học và lộ trình học ngoại ngữ phù hợp với bạn.</p>
-      <ul class="reg__contact">
-        <li><span class="reg__ico"><?php echo itc_icon('phone', 18); ?></span><div><small>Hotline</small><a href="tel:<?php echo $tel; ?>"><?php echo esc_html(itc_contact('hotline')); ?></a></div></li>
-        <li><span class="reg__ico"><?php echo itc_icon('doc', 18); ?></span><div><small>Email</small><a href="mailto:<?php echo esc_attr(itc_contact('email')); ?>"><?php echo esc_html(itc_contact('email')); ?></a></div></li>
-        <li><span class="reg__ico"><?php echo itc_icon('compass', 18); ?></span><div><small>Địa chỉ</small><span><?php echo esc_html(itc_contact('address')); ?></span></div></li>
-      </ul>
-    </div>
-    <form class="register__form reveal" data-delay="1" action="#" method="post" onsubmit="return false;">
-      <h3>Đăng ký nhận tư vấn</h3>
-      <div style="position:absolute;left:-9999px" aria-hidden="true">
-        <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-      </div>
-      <div class="field">
-        <label for="c-name">Họ và tên <i>*</i></label>
-        <input type="text" id="c-name" name="name" required autocomplete="name" placeholder="Nguyễn Văn A">
-      </div>
-      <div class="field">
-        <label for="c-phone">Số điện thoại <i>*</i></label>
-        <input type="tel" id="c-phone" name="phone" required autocomplete="tel" inputmode="numeric" pattern="[0-9]{9,11}" placeholder="09xx xxx xxx">
-      </div>
-      <div class="field">
-        <label for="c-program">Quan tâm tới</label>
-        <select id="c-program" name="program">
-          <option>Du học Đài Loan</option>
-          <option>Du học Nhật Bản</option>
-          <option>Học tiếng Trung</option>
-          <option>Học tiếng Nhật</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-red btn-lg" style="width:100%">Gửi đăng ký <?php echo itc_icon('arrow', 16); ?></button>
-      <p class="register__note"><?php echo itc_icon('shield', 15); ?> Thông tin của bạn được bảo mật tuyệt đối.</p>
-    </form>
-  </div>
-</section>
-
-<?php
-$schema = [
-  '@context' => 'https://schema.org','@type' => 'EducationalOrganization',
-  'name' => 'Công ty Cổ phần Đầu tư Phát triển Quốc tế ITC','alternateName' => 'ITC Thái Bình',
-  'url' => home_url('/'),'logo' => $img . '/logo.png',
-  'telephone' => itc_contact('hotline_raw'),'email' => itc_contact('email'),
-  'address' => ['@type'=>'PostalAddress','streetAddress'=>itc_contact('address'),'addressLocality'=>'Phường Trần Hưng Đạo','addressRegion'=>'Hưng Yên','addressCountry'=>'VN'],
-];
-echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_UNICODE) . '</script>';
-get_footer();
+<?php get_footer(); ?>

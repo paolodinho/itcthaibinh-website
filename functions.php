@@ -5,7 +5,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ITC_VER', '9.6.0');
+define('ITC_VER', '10.2.0');
 
 /* ----------------------------------------------------------
  * Theme setup
@@ -239,8 +239,8 @@ add_action('add_meta_boxes', function () {
         $f = fn($k) => esc_attr(get_post_meta($post->ID, $k, true));
         echo '<p><label><b>Địa chỉ</b><br><textarea name="branch_addr" rows="2" style="width:100%">' . esc_textarea(get_post_meta($post->ID, '_branch_addr', true)) . '</textarea></label></p>';
         echo '<p><label><b>SĐT (tùy chọn)</b><br><input type="text" name="branch_phone" value="' . $f('_branch_phone') . '" style="width:100%" placeholder="0985 653 868"></label></p>';
-        echo '<p><label><b>Mã nhúng Google Map (iframe)</b> — để định vị chính xác cơ sở<br><textarea name="branch_map" rows="3" style="width:100%" placeholder="&lt;iframe src=...&gt;&lt;/iframe&gt; — lấy ở Google Maps &gt; Chia sẻ &gt; Nhúng bản đồ">' . esc_textarea(get_post_meta($post->ID, '_branch_map', true)) . '</textarea></label></p>';
-        echo '<p><label><b>Hướng dẫn đường đi chi tiết</b> — mốc gần, rẽ ở đâu, dấu hiệu nhận biết<br><textarea name="branch_directions" rows="4" style="width:100%" placeholder="VD: Từ trung tâm TP đi theo đường... đến ngã tư... rẽ phải, cơ sở nằm cạnh...">' . esc_textarea(get_post_meta($post->ID, '_branch_directions', true)) . '</textarea></label></p>';
+        echo '<p><label><b>Mã nhúng Google Map (iframe)</b> - để định vị chính xác cơ sở<br><textarea name="branch_map" rows="3" style="width:100%" placeholder="&lt;iframe src=...&gt;&lt;/iframe&gt; - lấy ở Google Maps &gt; Chia sẻ &gt; Nhúng bản đồ">' . esc_textarea(get_post_meta($post->ID, '_branch_map', true)) . '</textarea></label></p>';
+        echo '<p><label><b>Hướng dẫn đường đi chi tiết</b> - mốc gần, rẽ ở đâu, dấu hiệu nhận biết<br><textarea name="branch_directions" rows="4" style="width:100%" placeholder="VD: Từ trung tâm TP đi theo đường... đến ngã tư... rẽ phải, cơ sở nằm cạnh...">' . esc_textarea(get_post_meta($post->ID, '_branch_directions', true)) . '</textarea></label></p>';
         echo '<p class="description">Tên cơ sở đặt ở ô Tiêu đề (vd: Cơ sở 1). Thứ tự hiển thị: ô "Thứ tự" (Page Attributes).</p>';
     }, 'itc_branch', 'normal');
 });
@@ -670,7 +670,7 @@ function itc_post_image_url($post_id = null) {
     if ($cats) { $slug = $cats[0]->slug; if (isset($map[$slug])) return $img . '/' . $map[$slug]; }
     return $img . '/act-3.jpg';
 }
-// Khối "Cẩm nang liên quan" — link bài viết theo danh mục (pillar → cluster)
+// Khối "Cẩm nang liên quan" - link bài viết theo danh mục (pillar → cluster)
 function itc_related_articles($cat_slug, $heading = 'Cẩm nang liên quan', $n = 3) {
     $q = new WP_Query(['post_type' => 'post', 'posts_per_page' => $n, 'category_name' => $cat_slug,
         'orderby' => 'date', 'order' => 'DESC', 'ignore_sticky_posts' => true]);

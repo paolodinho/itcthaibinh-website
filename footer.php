@@ -5,7 +5,7 @@
   <div class="wrap">
     <div class="foot-brand">
       <span class="foot-logo"><img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo.png'); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" width="150" height="73"></span>
-      <p><?php echo esc_html(itc_mod('itc_footer_about', 'Tư vấn du học Đài Loan – Nhật Bản & đào tạo tiếng Trung, tiếng Nhật uy tín tại Thái Bình. Đồng hành cùng học viên từ định hướng đến khi đặt chân tới giảng đường quốc tế.')); ?></p>
+      <p><?php echo esc_html(itc_mod('itc_footer_about', 'Trung tâm Tư vấn Du học và Ngoại ngữ ITC - đồng hành cùng học viên Thái Bình trên hành trình tới giảng đường quốc tế.')); ?></p>
       <div class="foot-social">
         <span class="foot-social__label">Kết nối với ITC</span>
         <?php $fb_du = itc_contact('fb_duhoc'); $fb_hn = itc_contact('fb_hoangu'); ?>
@@ -54,6 +54,9 @@
         <li><?php echo itc_icon('doc', 18); ?> <a href="mailto:<?php echo esc_attr(itc_contact('email')); ?>"><?php echo esc_html(itc_contact('email')); ?></a></li>
         <li><?php echo itc_icon('shield', 18); ?> <span><?php echo esc_html(itc_contact('working_hours')); ?></span></li>
       </ul>
+      <div class="foot-map" style="margin-top:16px;border-radius:10px;overflow:hidden;line-height:0">
+        <iframe src="https://maps.google.com/maps?q=20.4543879,106.3140482&z=15&output=embed" width="100%" height="160" loading="lazy" style="border:0" title="Bản đồ ITC Thái Bình" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </div>
 
@@ -64,16 +67,6 @@
     </div>
   </div>
 </footer>
-
-<!-- Máy bay bay xuyên trang theo scroll -->
-<div class="skyfly" data-skyfly aria-hidden="true">
-  <svg class="skyfly__svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-    <path class="skyfly__path" d="M12 102 C 35 96, 60 82, 74 56 S 90 12, 93 -6" fill="none" stroke="none"/>
-  </svg>
-  <span class="skyfly__plane">
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
-  </span>
-</div>
 
 <!-- Floating contact -->
 <div class="float-contact">
