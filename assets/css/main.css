@@ -917,8 +917,8 @@ b.pop{animation:popnum .4s var(--ease)}
 .twn-top__phone .ic{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;flex-shrink:0}
 .twn-top__phone small{display:block;font-size:.66rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
 .twn-socials{display:flex;gap:8px}
-.twn-socials a{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;transition:.2s}
-.twn-socials a:hover{background:var(--blue-dk)}
+.twn-socials a{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--blue-2);color:#fff;transition:.2s}
+.twn-socials a:hover{background:#1565C0}
 .twn-search{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);color:var(--blue-dk)}
 /* nav pill (sticky) */
 .twn-navwrap{position:sticky;top:0;z-index:600;background:#fff;padding:8px 0 12px;transition:.3s var(--ease)}
@@ -1016,6 +1016,10 @@ b.pop{animation:popnum .4s var(--ease)}
   display:flex;flex-direction:column;align-items:center;gap:9px;box-shadow:0 16px 38px rgba(20,44,107,.12);transition:.25s var(--ease)}
 .clx-svc2__card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(20,44,107,.18);border-color:var(--blue)}
 .clx-svc2__ic{display:grid;place-items:center;width:66px;height:66px;border-radius:50%;background:rgba(232,25,44,.08);color:var(--red)}
+/* xanh nước biển điểm chút: card giữa */
+.clx-svc2__card:nth-child(2) .clx-svc2__ic{background:rgba(30,136,229,.1);color:var(--blue-2)}
+.clx-svc2__card:nth-child(2):hover{border-color:var(--blue-2)}
+.clx-svc2__card:nth-child(2) .clx-svc2__l{color:var(--blue-2)}
 .clx-svc2__card b{font-family:var(--font-display);font-size:1.12rem;color:var(--blue-dk)}
 .clx-svc2__l{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-display);font-weight:700;font-size:.86rem;color:var(--red)}
 .clx-svc2__l svg{transition:transform .2s var(--ease)}
@@ -1028,6 +1032,8 @@ b.pop{animation:popnum .4s var(--ease)}
 .clx-adv__col{display:flex;flex-direction:column}
 .clx-adv__no{font-family:var(--font-display);font-weight:900;font-size:2.4rem;line-height:1;color:var(--red);
   margin-bottom:8px;letter-spacing:-.02em}
+.clx-adv__col:nth-child(2) .clx-adv__no{color:var(--blue-2)}
+.clx-adv__col:nth-child(2) li svg{color:var(--blue-2)}
 .clx-adv__col h3{font-size:1.24rem;margin-bottom:16px;color:var(--blue-dk);line-height:1.32}
 .clx-adv__media{margin:0 0 18px;border-radius:16px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 14px 32px rgba(20,44,107,.12)}
 .clx-adv__media img{width:100%;height:100%;object-fit:cover;transition:.5s var(--ease)}
