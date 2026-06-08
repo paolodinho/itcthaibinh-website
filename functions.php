@@ -5,7 +5,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ITC_VER', '10.4.0');
+define('ITC_VER', '10.5.0');
 
 /* ----------------------------------------------------------
  * Theme setup
@@ -733,7 +733,7 @@ function itc_register_section($title = '', $sub = '', $program = '') {
         <div class="register__text reveal">
           <span class="kicker kicker--light">Đăng ký tư vấn</span>
           <h2><?php echo $title; ?></h2>
-          <p class="lead" style="color:rgba(255,255,255,.85)"><?php echo esc_html($sub); ?></p>
+          <p class="lead" style="color:var(--muted)"><?php echo esc_html($sub); ?></p>
           <ul class="reg__contact">
             <li><span class="reg__ico"><?php echo itc_icon('phone',18); ?></span><div><small>Hotline</small><a href="tel:<?php echo $tel; ?>"><?php echo esc_html(itc_contact('hotline')); ?></a></div></li>
             <li><span class="reg__ico"><?php echo itc_icon('doc',18); ?></span><div><small>Email</small><a href="mailto:<?php echo esc_attr(itc_contact('email')); ?>"><?php echo esc_html(itc_contact('email')); ?></a></div></li>
