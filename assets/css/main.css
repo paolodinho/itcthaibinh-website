@@ -1004,6 +1004,10 @@ b.pop{animation:popnum .4s var(--ease)}
 .clx-hero__slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .55s var(--ease);pointer-events:none}
 .clx-hero__slide:first-child{position:relative}      /* slide đầu giữ chiều cao khung */
 .clx-hero__slide.is-active{opacity:1;visibility:visible;pointer-events:auto;z-index:2}
+/* scrim sáng bên trái: chữ luôn trên nền sáng, không đè lên người/ảnh */
+.clx-hero__slide::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.82) 30%,rgba(255,255,255,0) 58%)}
+.clx-hero--photo .clx-hero__grid{position:relative;z-index:2}
 .clx-hero__dots{position:absolute;left:0;right:0;bottom:64px;z-index:6;display:flex;gap:9px;justify-content:center}
 .clx-hero__dots button{width:11px;height:11px;border-radius:50%;border:0;padding:0;cursor:pointer;
   background:rgba(20,20,30,.2);transition:.25s var(--ease)}
@@ -1049,6 +1053,8 @@ b.pop{animation:popnum .4s var(--ease)}
   .clx-hero--photo .clx-hero__content{padding:24px 14px 0;max-width:none}
   .clx-hero--photo .clx-hero__box{margin:18px auto 0}
   .clx-hero__dots{bottom:14px}
+  /* mobile: scrim từ trên xuống (chữ ở trên) */
+  .clx-hero__slide::before{background:linear-gradient(180deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.7) 32%,rgba(255,255,255,0) 60%)}
 }
 
 /* ---------- ABOUT ---------- */
