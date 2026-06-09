@@ -1001,8 +1001,9 @@ b.pop{animation:popnum .4s var(--ease)}
 .clx-hero__dots button{width:11px;height:11px;border-radius:50%;border:0;padding:0;cursor:pointer;
   background:rgba(20,20,30,.2);transition:.25s var(--ease)}
 .clx-hero__dots button.is-active{background:var(--red);width:30px;border-radius:7px}
-/* slide 2 (tạm): chữ thư pháp lớn mờ bên phải - motif ngoại ngữ */
-.clx-hero__lang{position:absolute;right:5%;top:50%;transform:translateY(-50%);z-index:1;text-align:right;
+/* slide 2 đã có ảnh thật -> ẩn motif chữ tạm */
+.clx-hero__lang{display:none}
+.clx-hero__lang--legacy{position:absolute;right:5%;top:50%;transform:translateY(-50%);z-index:1;text-align:right;
   font-family:var(--font-display);font-weight:800;line-height:.92;pointer-events:none;user-select:none}
 .clx-hero__lang b{display:block;font-size:clamp(4rem,13vw,11rem);color:rgba(238,32,15,.13)}
 .clx-hero__lang i{display:block;font-style:normal;font-size:clamp(2rem,6vw,5rem);color:rgba(21,61,139,.16);margin-top:.1em}
@@ -1016,8 +1017,7 @@ b.pop{animation:popnum .4s var(--ease)}
   .clx-hero--photo{min-height:max(36.3vw,480px)}
   .clx-hero__slide{background-color:#FCEFEC;background-position:right top;background-size:cover;background-repeat:no-repeat}
   .clx-hero__slide--du{background-image:url(../images/hero-banner-desktop.jpg);background-size:auto 132%;background-position:25% top}
-  /* TẠM: slide 2 bố cục typographic (chờ ảnh thật) - khác hẳn slide 1 */
-  .clx-hero__slide--nn{background-image:none;background:linear-gradient(120deg,#FFFFFF 0%,#FFF1EC 48%,#E9EFFb 100%)}
+  .clx-hero__slide--nn{background-image:url(../images/hero-banner2-desktop.jpg);background-position:center;background-size:cover}
   .clx-hero--photo .clx-hero__grid{grid-template-columns:1fr;min-height:max(36.3vw,480px);align-items:center}
   /* dàn rộng kiểu sharingtaiwan: tiêu đề 2 dòng to, countries 1 dòng ngang trải rộng */
   .clx-hero--photo .clx-hero__content{max-width:720px;padding-block:clamp(14px,1.6vw,26px)}
@@ -1033,7 +1033,7 @@ b.pop{animation:popnum .4s var(--ease)}
   /* Mobile: mỗi slide dùng ảnh banner DỌC riêng (chữ phủ vùng trống trên, người ở dưới) */
   .clx-hero__slide{background-color:#FCEFEC;background-position:center top;background-size:cover;background-repeat:no-repeat}
   .clx-hero__slide--du{background-image:url(../images/hero-banner-mobile.jpg)}
-  .clx-hero__slide--nn{background-image:none;background:linear-gradient(165deg,#FFFFFF 0%,#FFF1EC 55%,#E9EFFB 100%)}
+  .clx-hero__slide--nn{background-image:url(../images/hero-banner2-desktop.jpg);background-position:center;background-size:cover}
   .clx-hero--photo .clx-hero__sub,
   .clx-hero--photo .clx-hero__flags,
   .clx-hero--photo .clx-hero__strip{display:none}
