@@ -930,8 +930,8 @@ b.pop{animation:popnum .4s var(--ease)}
   padding:5px 12px;box-shadow:0 8px 22px rgba(20,44,107,.08)}
 .twn-nav ul{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px;margin:0;padding:0;list-style:none}
 .twn-nav li{position:relative}
-.twn-nav a{display:block;font-family:var(--font-display);font-weight:700;color:var(--ink);padding:12px 16px;border-radius:34px;
-  font-size:1rem;white-space:nowrap;transition:.18s var(--ease)}
+.twn-nav a{display:block;font-family:var(--font-display);font-weight:700;color:var(--ink);padding:12px 14px;border-radius:34px;
+  font-size:.95rem;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap;transition:.18s var(--ease)}
 .twn-nav a:hover,.twn-nav .current-menu-item>a,.twn-nav .current-menu-parent>a{background:var(--red-soft);color:var(--red)}
 .twn-nav .menu-item-has-children>a{padding-right:30px}
 .twn-nav .menu-item-has-children>a::after{content:"";position:absolute;right:14px;top:50%;width:6px;height:6px;
