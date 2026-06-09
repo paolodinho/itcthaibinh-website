@@ -9,40 +9,48 @@ $tel  = esc_attr(itc_contact('hotline_raw'));
 $hot  = esc_html(itc_contact('hotline'));
 ?>
 
-<!-- HERO -->
-<section class="clx-hero clx-hero--photo">
-  <div class="clx-hero__deco" aria-hidden="true"></div>
-  <svg class="clx-hero__skyline" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <g fill="rgba(255,255,255,.07)">
-      <rect x="40" y="120" width="70" height="100"/><rect x="120" y="90" width="54" height="130"/>
-      <rect x="184" y="140" width="80" height="80"/><rect x="300" y="60" width="46" height="160"/>
-      <rect x="356" y="110" width="64" height="110"/><rect x="430" y="150" width="90" height="70"/>
-      <rect x="980" y="130" width="80" height="90"/><rect x="1070" y="100" width="54" height="120"/>
-      <rect x="1134" y="150" width="78" height="70"/><rect x="1250" y="80" width="48" height="140"/>
-      <rect x="1308" y="120" width="70" height="100"/>
-      <!-- Taipei 101 -->
-      <path d="M735 220 V70 l-7-10 h6 l-4-26 4-12 4 12-4 26 h6 l-7 10 V220z"/>
-      <rect x="724" y="92" width="34" height="22"/><rect x="722" y="118" width="38" height="22"/>
-      <rect x="720" y="144" width="42" height="24"/><rect x="718" y="172" width="46" height="48"/>
-    </g>
-  </svg>
-  <svg class="clx-hero__plane" viewBox="0 0 120 80" aria-hidden="true">
-    <path d="M4 70 C 30 60,55 50,78 30" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
-    <path d="M86 12l4 10 12 3-9 6 1 12-8-7-11 4 5-11-6-9 12 1z" fill="#FF9B96" transform="rotate(18 90 22)"/>
-  </svg>
-  <div class="wrap clx-hero__grid">
-    <div class="clx-hero__content">
-      <span class="clx-hero__kk">Tư vấn du học &middot; Đào tạo ngoại ngữ uy tín tại Thái Bình</span>
-      <h1 class="clx-hero__big">DU HỌC<br><span class="r">ĐÀI&nbsp;LOAN&nbsp;·&nbsp;NHẬT&nbsp;BẢN</span></h1>
-      <span class="clx-hero__script">cùng ITC Thái Bình</span>
-      <p class="clx-hero__sub">Đồng hành trọn vẹn từ học tiếng, định hướng ngành nghề đến hoàn tất hồ sơ visa. Minh bạch chi phí, tận tâm tới ngày bạn lên đường nhập học.</p>
-      <div class="clx-hero__flags"><span>🇻🇳</span><span>🇹🇼</span><span>🇯🇵</span></div>
-      <div class="clx-hero__box">
-        <span>Tư vấn miễn phí ngay:</span>
-        <a href="tel:<?php echo $tel; ?>"><span class="ic"><?php echo itc_icon('phone',18); ?></span> <?php echo $hot; ?></a>
+<!-- HERO SLIDER (auto 2 banner) -->
+<section class="clx-hero clx-hero--photo clx-hero--slider" data-autoplay="6000" aria-roledescription="carousel" aria-label="Banner ITC">
+  <div class="clx-hero__viewport">
+
+    <!-- SLIDE 1: Du học -->
+    <div class="clx-hero__slide clx-hero__slide--du is-active" aria-roledescription="slide">
+      <div class="wrap clx-hero__grid">
+        <div class="clx-hero__content">
+          <span class="clx-hero__kk">Tư vấn du học &middot; Đào tạo ngoại ngữ uy tín tại Thái Bình</span>
+          <h1 class="clx-hero__big">DU HỌC<br><span class="r">ĐÀI&nbsp;LOAN&nbsp;·&nbsp;NHẬT&nbsp;BẢN</span></h1>
+          <span class="clx-hero__script">cùng ITC Thái Bình</span>
+          <p class="clx-hero__sub">Đồng hành trọn vẹn từ học tiếng, định hướng ngành nghề đến hoàn tất hồ sơ visa. Minh bạch chi phí, tận tâm tới ngày bạn lên đường nhập học.</p>
+          <div class="clx-hero__flags"><span>🇻🇳</span><span>🇹🇼</span><span>🇯🇵</span></div>
+          <div class="clx-hero__box">
+            <span>Tư vấn miễn phí ngay:</span>
+            <a href="tel:<?php echo $tel; ?>"><span class="ic"><?php echo itc_icon('phone',18); ?></span> <?php echo $hot; ?></a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="clx-hero__person"><img src="<?php echo esc_url($img.'/hero-person-cut.png'); ?>" alt="Tư vấn viên ITC Thái Bình" width="440" height="560"></div>
+
+    <!-- SLIDE 2: Đào tạo ngoại ngữ (ảnh banner đang chờ - tạm dùng ảnh slide 1) -->
+    <div class="clx-hero__slide clx-hero__slide--nn" aria-roledescription="slide">
+      <div class="wrap clx-hero__grid">
+        <div class="clx-hero__content">
+          <span class="clx-hero__kk">Đào tạo ngoại ngữ &middot; Luyện thi chứng chỉ TOCFL &middot; JLPT</span>
+          <h1 class="clx-hero__big">HỌC NGOẠI NGỮ<br><span class="r">TIẾNG&nbsp;TRUNG&nbsp;·&nbsp;TIẾNG&nbsp;NHẬT</span></h1>
+          <span class="clx-hero__script">cùng ITC Thái Bình</span>
+          <p class="clx-hero__sub">Lộ trình bài bản từ mất gốc đến giao tiếp thành thạo &amp; luyện thi chứng chỉ. Giáo viên tận tâm, lớp nhỏ, cam kết đầu ra rõ ràng.</p>
+          <div class="clx-hero__flags"><span>🇨🇳</span><span>🇹🇼</span><span>🇯🇵</span></div>
+          <div class="clx-hero__box">
+            <span>Học thử miễn phí:</span>
+            <a href="tel:<?php echo $tel; ?>"><span class="ic"><?php echo itc_icon('phone',18); ?></span> <?php echo $hot; ?></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="clx-hero__dots" role="tablist" aria-label="Chọn banner">
+    <button type="button" class="is-active" aria-label="Banner 1: Du học"></button>
+    <button type="button" aria-label="Banner 2: Đào tạo ngoại ngữ"></button>
   </div>
   <div class="clx-hero__strip"><div class="wrap clx-hero__strip-in">
     <span><?php echo itc_icon('thumb',16); ?> Du học Đài Loan · Nhật Bản - ITC Thái Bình</span>
