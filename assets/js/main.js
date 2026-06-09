@@ -42,6 +42,28 @@
     start();
   }
 
+  /* ---- Auto-scroll dải Hoạt động (carousel kiểu sharingtaiwan, dừng khi hover) ---- */
+  var gal = document.querySelector('.clx-gal--scroll');
+  if (gal && !reduce) {
+    gal.style.scrollSnapType = 'none'; // snap mandatory chặn auto-scroll mượt
+    var gdir = 1, gpaused = false;
+    var pause = function () { gpaused = true; };
+    var resume = function () { gpaused = false; };
+    gal.addEventListener('mouseenter', pause);
+    gal.addEventListener('mouseleave', resume);
+    gal.addEventListener('touchstart', pause, { passive: true });
+    gal.addEventListener('touchend', function () { setTimeout(resume, 2000); }, { passive: true });
+    var galTick = function () {
+      if (!gpaused && gal.scrollWidth > gal.clientWidth + 4) {
+        gal.scrollLeft += gdir * 0.6;
+        if (gal.scrollLeft + gal.clientWidth >= gal.scrollWidth - 1) gdir = -1;
+        else if (gal.scrollLeft <= 0) gdir = 1;
+      }
+      requestAnimationFrame(galTick);
+    };
+    requestAnimationFrame(galTick);
+  }
+
   /* ---- Header shadow on scroll ---- */
   var header = document.querySelector('.twn-navwrap') || document.querySelector('.site-header');
   if (header) {
@@ -81,7 +103,7 @@
   });
 
   document.body.classList.add('has-fx');
-  var revealEls = document.querySelectorAll('.reveal');
+  var revealEls = document.querySelectorAll('.reveal, .reveal-zoom');
   if (reduce || !('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) { el.classList.add('in'); });
   } else {

@@ -80,7 +80,7 @@ $hot  = esc_html(itc_contact('hotline'));
         <a class="clx-svc2__card" href="<?php echo esc_url(home_url('/du-hoc-nhat-ban/')); ?>"><span class="clx-svc2__ic"><?php echo itc_icon('fuji',28); ?></span><b>Du học Nhật Bản</b><span class="clx-svc2__l">Tìm hiểu <?php echo itc_icon('arrow',13); ?></span></a>
         <a class="clx-svc2__card" href="<?php echo esc_url(home_url('/tieng-trung/')); ?>"><span class="clx-svc2__ic"><?php echo itc_icon('cap',28); ?></span><b>Đào tạo ngoại ngữ</b><span class="clx-svc2__l">Tìm hiểu <?php echo itc_icon('arrow',13); ?></span></a>
       </div>
-      <figure class="clx-svc2__photo"><img src="<?php echo esc_url($img.'/hero-wide.jpg'); ?>" alt="Học viên ITC Thái Bình" loading="lazy"></figure>
+      <figure class="clx-svc2__photo reveal-zoom"><img src="<?php echo esc_url($img.'/hero-wide.jpg'); ?>" alt="Học viên ITC Thái Bình" loading="lazy"></figure>
     </div>
   </div>
 </section>
