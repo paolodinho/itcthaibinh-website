@@ -1004,13 +1004,15 @@ b.pop{animation:popnum .4s var(--ease)}
   .clx-hero--photo .clx-hero__plane,
   .clx-hero--photo .clx-hero__person{display:none}
   .clx-hero--photo .clx-hero__grid{grid-template-columns:1fr;min-height:max(36.3vw,480px);align-items:center}
-  .clx-hero--photo .clx-hero__content{max-width:660px;padding-block:clamp(12px,1.4vw,24px)}
-  .clx-hero--photo .clx-hero__kk{margin-bottom:13px;letter-spacing:.1em;font-size:.86rem}
-  .clx-hero--photo .clx-hero__big{font-size:clamp(2rem,3.5vw,2.9rem);line-height:1.05}
-  .clx-hero--photo .clx-hero__script{margin-top:7px;font-size:clamp(1.5rem,2vw,2rem)}
-  .clx-hero--photo .clx-hero__sub{margin-top:16px;max-width:520px;font-size:1rem;line-height:1.65}
-  .clx-hero--photo .clx-hero__flags{margin-top:14px;font-size:1.4rem}
-  .clx-hero--photo .clx-hero__box{margin-top:20px}
+  /* dàn rộng kiểu sharingtaiwan: tiêu đề 2 dòng to, countries 1 dòng ngang trải rộng */
+  .clx-hero--photo .clx-hero__content{max-width:720px;padding-block:clamp(14px,1.6vw,26px)}
+  .clx-hero--photo .clx-hero__kk{margin-bottom:16px;letter-spacing:.12em;font-size:.9rem}
+  .clx-hero--photo .clx-hero__big{font-size:clamp(2.2rem,3.9vw,3.3rem);line-height:1.07}
+  .clx-hero--photo .clx-hero__big .r{white-space:nowrap}
+  .clx-hero--photo .clx-hero__script{margin-top:9px;font-size:clamp(1.6rem,2.2vw,2.2rem)}
+  .clx-hero--photo .clx-hero__sub{margin-top:18px;max-width:560px;font-size:1.04rem;line-height:1.7}
+  .clx-hero--photo .clx-hero__flags{margin-top:16px;font-size:1.5rem}
+  .clx-hero--photo .clx-hero__box{margin-top:24px}
 }
 @media (max-width:900px){
   /* Mobile: ảnh banner dọc (chữ phủ vùng trống phía trên, người ở dưới) */
