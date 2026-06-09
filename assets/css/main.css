@@ -5,14 +5,14 @@
    ========================================================= */
 
 :root{
-  /* TƯƠI SÁNG (yc khách: bớt mảng màu đậm). Nền sáng chủ đạo; đỏ chỉ điểm nhấn.
-     Chỉ giữ 2 mảng đậm làm điểm tựa: footer + band đăng ký. */
-  --blue:#E8192C;        /* đỏ tươi - accent (nút, icon, hover, chữ nhấn) */
-  --blue-dk:#C2101F;     /* đỏ trầm - dùng cho 2 mảng tựa (footer + CTA) */
-  --blue-2:#1E88E5;      /* xanh nước biển tươi - điểm chút */
-  --red:#E8192C;
-  --red-dk:#C2101F;
-  --red-soft:#FFF1F2;    /* nền hồng rất nhạt cho band/icon - thay mảng đỏ đặc */
+  /* TÔNG ICC (yc khách, mẫu icchanoi.vn): ĐỎ-CAM TƯƠI rực làm chủ đạo, sáng chứ không thẫm.
+     Xanh dương làm accent mát (giống chữ nút quiz xanh của ICC). */
+  --blue:#FA4516;        /* đỏ-cam tươi - brand chủ đạo (nút, band, footer, chữ nhấn) */
+  --blue-dk:#E0380D;     /* đỏ-cam đậm hơn cho gradient/hover */
+  --blue-2:#1E78D8;      /* xanh dương tươi - accent mát điểm chút */
+  --red:#FA4516;
+  --red-dk:#E0380D;
+  --red-soft:#FFF1EC;    /* nền cam rất nhạt cho band/icon */
   --ink:#1A2230;
   --muted:#5C6671;
   --paper:#FFFFFF;
@@ -295,8 +295,8 @@ h2{font-size:clamp(2rem,3.9vw,3.05rem);color:var(--ink)}
 .register__note svg{color:var(--blue)}
 
 /* ---------- FOOTER ---------- */
-.site-footer{background:linear-gradient(180deg,#1C2230 0%,#141A24 100%);color:rgba(255,255,255,.72);
-  padding-top:clamp(54px,6vw,76px);border-top:3px solid var(--red)}
+.site-footer{background:linear-gradient(180deg,#FB4C1C 0%,#EC3C0C 100%);color:rgba(255,255,255,.86);
+  padding-top:clamp(54px,6vw,76px)}
 .site-footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:38px;padding-bottom:46px}
 .foot-logo{display:inline-block;background:#fff;padding:10px 16px;border-radius:10px;margin-bottom:18px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
 .foot-logo img{height:46px;width:auto;display:block}
@@ -308,15 +308,15 @@ h2{font-size:clamp(2rem,3.9vw,3.05rem);color:var(--ink)}
 .foot-social a span{border-bottom:1px solid transparent;transition:.18s}
 .foot-social a:hover{color:#fff}
 .foot-social a:hover span{border-bottom-color:rgba(255,255,255,.5)}
-.foot-social svg{color:var(--blue-2);flex-shrink:0}
+.foot-social svg{color:#fff;flex-shrink:0}
 .foot-col h4{color:#fff;font-size:1rem;margin-bottom:18px}
 .foot-col ul{display:grid;gap:11px}
 .foot-col a{font-size:.93rem;transition:.18s}
 .foot-col a:hover{color:#fff;padding-left:3px}
 .foot-contact li{display:flex;gap:11px;align-items:flex-start;margin-bottom:13px;font-size:.92rem}
-.foot-contact svg{color:var(--blue-2);flex-shrink:0;margin-top:3px}
-.foot-contact a:hover,.foot-col a:hover{color:#FF8A91}
-.foot-bottom{background:rgba(0,0,0,.18)}
+.foot-contact svg{color:#fff;flex-shrink:0;margin-top:3px}
+.foot-contact a:hover,.foot-col a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.foot-bottom{background:rgba(0,0,0,.12)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.1)}
 .foot-bottom .wrap{display:flex;justify-content:space-between;gap:16px;padding:20px 0;font-size:.84rem;color:rgba(255,255,255,.55)}
 
