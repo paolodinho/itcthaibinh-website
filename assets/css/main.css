@@ -975,8 +975,8 @@ b.pop{animation:popnum .4s var(--ease)}
 .clx-hero__flags{display:flex;gap:10px;margin-top:18px;font-size:1.7rem;line-height:1}
 .clx-hero__kk{display:inline-block;font-family:var(--font-display);font-weight:700;font-size:.82rem;letter-spacing:.06em;
   text-transform:uppercase;color:var(--red);margin-bottom:16px}
-.clx-hero__big{color:var(--ink);font-family:var(--font-display);font-weight:800;font-size:clamp(2.3rem,5.6vw,4.6rem);
-  line-height:1.02;letter-spacing:-.02em}
+.clx-hero__big{color:var(--ink);font-family:var(--font-display);font-weight:800;font-size:clamp(1.85rem,3.7vw,3rem);
+  line-height:1.08;letter-spacing:-.01em}
 .clx-hero__big .r{color:var(--red)}
 .clx-hero__script{display:block;font-family:'Lora',Georgia,serif;font-style:italic;font-weight:600;
   font-size:clamp(1.6rem,3.4vw,2.8rem);color:var(--blue-2);margin-top:8px}
@@ -1003,6 +1003,20 @@ b.pop{animation:popnum .4s var(--ease)}
   .clx-hero--photo .clx-hero__person{display:none}
   .clx-hero--photo .clx-hero__grid{grid-template-columns:1fr;min-height:clamp(460px,40vw,680px);align-items:center}
   .clx-hero--photo .clx-hero__content{max-width:600px}
+}
+@media (max-width:900px){
+  /* Mobile: ảnh banner dọc (chữ phủ vùng trống phía trên, người ở dưới) */
+  .clx-hero--photo{background:#FCEFEC url(../images/hero-banner-mobile.jpg) center top/cover no-repeat}
+  .clx-hero--photo .clx-hero__skyline,
+  .clx-hero--photo .clx-hero__deco,
+  .clx-hero--photo .clx-hero__plane,
+  .clx-hero--photo .clx-hero__person,
+  .clx-hero--photo .clx-hero__sub,
+  .clx-hero--photo .clx-hero__flags,
+  .clx-hero--photo .clx-hero__strip{display:none}
+  .clx-hero--photo .clx-hero__grid{display:block;min-height:calc(100vw * 1.62);text-align:center;gap:0}
+  .clx-hero--photo .clx-hero__content{padding:24px 14px 0;max-width:none}
+  .clx-hero--photo .clx-hero__box{margin:18px auto 0}
 }
 
 /* ---------- ABOUT ---------- */
