@@ -953,12 +953,12 @@ b.pop{animation:popnum .4s var(--ease)}
 .twn-toggle span{width:20px;height:2px;background:#fff;border-radius:2px}
 
 /* ---------- SECTION shell ---------- */
-.clx-sec{padding:clamp(54px,6.5vw,92px) 0}
+.clx-sec{padding:clamp(64px,7vw,100px) 0}
 .clx-sec--pale{background:var(--paper-2)}
 .clx-head{text-align:center;max-width:780px;margin:0 auto clamp(34px,4vw,54px)}
 .clx-head .kk{display:inline-block;font-family:var(--font-display);font-weight:700;letter-spacing:.14em;
   color:var(--red);text-transform:uppercase;font-size:.8rem;margin-bottom:12px}
-.clx-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--blue-2)}
+.clx-head h2{font-size:clamp(2rem,3.1vw,2.45rem);color:var(--blue-2);font-weight:700}
 .clx-head h2 .u{color:var(--red)}
 .clx-head p{color:var(--muted);margin-top:14px;font-size:1.05rem}
 
