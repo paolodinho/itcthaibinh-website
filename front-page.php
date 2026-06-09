@@ -10,7 +10,7 @@ $hot  = esc_html(itc_contact('hotline'));
 ?>
 
 <!-- HERO -->
-<section class="clx-hero">
+<section class="clx-hero clx-hero--photo">
   <div class="clx-hero__deco" aria-hidden="true"></div>
   <svg class="clx-hero__skyline" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
     <g fill="rgba(255,255,255,.07)">

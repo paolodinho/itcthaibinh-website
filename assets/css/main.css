@@ -991,6 +991,19 @@ b.pop{animation:popnum .4s var(--ease)}
 .clx-hero__strip-in{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;padding:13px 0;font-weight:600;color:var(--muted);font-size:.92rem}
 .clx-hero__strip-in span{display:inline-flex;align-items:center;gap:8px}
 .clx-hero__strip-in svg{color:var(--red)}
+/* ---------- HERO dùng ẢNH BANNER (desktop) ---------- */
+/* Desktop: ảnh banner full (đã có người + skyline + decor) -> ẩn các lớp vẽ cũ, chữ phủ bên trái.
+   Mobile (<=900px): giữ layout cũ (gradient + ảnh người cắt rời) tới khi có banner dọc riêng. */
+@media (min-width:901px){
+  .clx-hero--photo{background:#FCEFEC url(../images/hero-banner-desktop.jpg) right center/cover no-repeat;
+    min-height:clamp(460px,40vw,680px)}
+  .clx-hero--photo .clx-hero__skyline,
+  .clx-hero--photo .clx-hero__deco,
+  .clx-hero--photo .clx-hero__plane,
+  .clx-hero--photo .clx-hero__person{display:none}
+  .clx-hero--photo .clx-hero__grid{grid-template-columns:1fr;min-height:clamp(460px,40vw,680px);align-items:center}
+  .clx-hero--photo .clx-hero__content{max-width:600px}
+}
 
 /* ---------- ABOUT ---------- */
 .clx-about p{color:var(--muted);max-width:840px;margin:0 auto;font-size:1.08rem;line-height:1.8}
