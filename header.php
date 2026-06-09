@@ -24,9 +24,9 @@ $logo = get_template_directory_uri() . '/assets/images/logo.png';
         <img src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" width="120" height="54">
       </a>
 
-      <a class="twn-top__phone" href="tel:<?php echo $tel; ?>" aria-label="Hotline <?php echo $hot; ?>">
-        <span class="ic"><?php echo itc_icon('phone', 17); ?></span>
-        <span><small>Tư vấn miễn phí</small><?php echo $hot; ?></span>
+      <a class="twn-top__phone twn-top__zalo" href="<?php echo esc_url($zalo); ?>" target="_blank" rel="noopener" aria-label="Chat Zalo <?php echo $hot; ?>">
+        <span class="ic">Z</span>
+        <span><small>Chat Zalo tư vấn</small><?php echo $hot; ?></span>
       </a>
 
       <div class="twn-socials">
