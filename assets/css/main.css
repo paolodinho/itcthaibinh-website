@@ -1024,11 +1024,12 @@ b.pop{animation:popnum .4s var(--ease)}
 
 @media (min-width:901px){
   /* Khung banner theo TỈ LỆ sharingtaiwan.vn = 2.755:1 (1440->523px, 1920->697px). Sàn 480px. */
-  .clx-hero--photo{min-height:clamp(560px,46vw,700px)}
-  .clx-hero__slide{background-color:#FCEFEC;background-position:right center;background-size:cover;background-repeat:no-repeat}
-  .clx-hero__slide--du{background-image:url(../images/hero-banner-desktop.jpg);background-position:right center;background-size:cover}
+  /* khung = tỉ lệ sharingtaiwan 2.755:1 (1440->523px, 1920->697px) */
+  .clx-hero--photo{min-height:max(36.3vw,480px)}
+  .clx-hero__slide{background-color:#FCEFEC;background-position:right top;background-size:cover;background-repeat:no-repeat}
+  .clx-hero__slide--du{background-image:url(../images/hero-banner-desktop.jpg);background-position:right 14%;background-size:cover}
   .clx-hero__slide--nn{background-image:url(../images/hero-banner2-desktop.jpg);background-position:center;background-size:cover}
-  .clx-hero--photo .clx-hero__grid{grid-template-columns:1fr;min-height:clamp(560px,46vw,700px);align-items:center}
+  .clx-hero--photo .clx-hero__grid{grid-template-columns:1fr;min-height:max(36.3vw,480px);align-items:center}
   /* dàn rộng kiểu sharingtaiwan: tiêu đề 2 dòng to, countries 1 dòng ngang trải rộng */
   .clx-hero--photo .clx-hero__content{max-width:720px;padding-block:clamp(14px,1.6vw,26px)}
   .clx-hero--photo .clx-hero__kk{margin-bottom:16px;letter-spacing:.12em;font-size:.9rem}
