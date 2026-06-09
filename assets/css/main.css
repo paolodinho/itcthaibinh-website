@@ -960,10 +960,10 @@ b.pop{animation:popnum .4s var(--ease)}
 
 /* ---------- HERO (ảnh người cắt-rời + nền navy) ---------- */
 .clx-hero{position:relative;background:linear-gradient(160deg,#FFFFFF 0%,#FFF4F1 60%,#FFEFF0 100%);overflow:hidden;color:var(--ink)}
-.clx-hero__skyline g{fill:rgba(232,25,44,.06)}
-.clx-hero__plane path:first-child{stroke:rgba(232,25,44,.4)}
+.clx-hero__skyline g{fill:rgba(238,32,15,.06)}
+.clx-hero__plane path:first-child{stroke:rgba(238,32,15,.4)}
 .clx-hero__deco{position:absolute;inset:auto 0 30px 0;height:56%;pointer-events:none;
-  background:repeating-linear-gradient(90deg,rgba(232,25,44,.05) 0 44px,transparent 44px 52px);
+  background:repeating-linear-gradient(90deg,rgba(238,32,15,.05) 0 44px,transparent 44px 52px);
   -webkit-mask:linear-gradient(to top,#000,transparent);mask:linear-gradient(to top,#000,transparent)}
 .clx-hero__plane{position:absolute;top:26px;right:7%;width:clamp(80px,11vw,140px);z-index:2;opacity:.9}
 .clx-hero__skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:62%;z-index:1;pointer-events:none}
@@ -982,7 +982,7 @@ b.pop{animation:popnum .4s var(--ease)}
   font-size:clamp(1.6rem,3.4vw,2.8rem);color:var(--blue-2);margin-top:8px}
 .clx-hero__sub{margin-top:18px;max-width:520px;color:var(--muted);font-size:1.08rem}
 .clx-hero__box{display:inline-flex;flex-direction:column;gap:4px;background:#fff;
-  border:1px solid var(--line);border-radius:18px;padding:14px 26px;margin-top:24px;box-shadow:0 14px 34px rgba(232,25,44,.1)}
+  border:1px solid var(--line);border-radius:18px;padding:14px 26px;margin-top:24px;box-shadow:0 14px 34px rgba(238,32,15,.1)}
 .clx-hero__box span{font-weight:600;color:var(--muted);font-size:.92rem}
 .clx-hero__box a{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:800;
   font-size:clamp(1.3rem,2.2vw,1.9rem);color:var(--ink)}
@@ -1037,7 +1037,7 @@ b.pop{animation:popnum .4s var(--ease)}
   box-shadow:0 14px 32px rgba(20,44,107,.07);transition:.25s var(--ease)}
 .clx-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(20,44,107,.13);border-color:var(--blue)}
 .clx-card__ic{display:grid;place-items:center;width:78px;height:78px;border-radius:50%;
-  background:rgba(232,25,44,.08);color:var(--red);margin:0 auto 18px}
+  background:rgba(238,32,15,.08);color:var(--red);margin:0 auto 18px}
 .clx-card h3{font-size:1.26rem;margin-bottom:10px;color:var(--blue-dk)}
 .clx-card p{color:var(--muted);margin-bottom:16px;font-size:.97rem;line-height:1.7}
 .clx-card__l{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-display);font-weight:700;color:var(--red)}
@@ -1051,7 +1051,7 @@ b.pop{animation:popnum .4s var(--ease)}
 .clx-svc2__card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 22px;text-align:center;
   display:flex;flex-direction:column;align-items:center;gap:9px;box-shadow:0 16px 38px rgba(20,44,107,.12);transition:.25s var(--ease)}
 .clx-svc2__card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(20,44,107,.18);border-color:var(--blue)}
-.clx-svc2__ic{display:grid;place-items:center;width:66px;height:66px;border-radius:50%;background:rgba(232,25,44,.08);color:var(--red)}
+.clx-svc2__ic{display:grid;place-items:center;width:66px;height:66px;border-radius:50%;background:rgba(238,32,15,.08);color:var(--red)}
 /* xanh nước biển điểm chút: card giữa */
 .clx-svc2__card:nth-child(2) .clx-svc2__ic{background:rgba(30,136,229,.1);color:var(--blue-2)}
 .clx-svc2__card:nth-child(2):hover{border-color:var(--blue-2)}
@@ -1114,8 +1114,8 @@ b.pop{animation:popnum .4s var(--ease)}
   -webkit-overflow-scrolling:touch;padding:4px 2px 16px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.5) transparent}
 .clx-gal--scroll figure{flex:0 0 clamp(220px,24vw,300px);scroll-snap-align:start;aspect-ratio:4/3}
 .clx-gal--scroll::-webkit-scrollbar{height:8px}
-.clx-gal--scroll::-webkit-scrollbar-thumb{background:rgba(232,25,44,.4);border-radius:8px}
-.clx-gal--scroll::-webkit-scrollbar-track{background:rgba(232,25,44,.1);border-radius:8px}
+.clx-gal--scroll::-webkit-scrollbar-thumb{background:rgba(238,32,15,.4);border-radius:8px}
+.clx-gal--scroll::-webkit-scrollbar-track{background:rgba(238,32,15,.1);border-radius:8px}
 
 /* ---------- CẢM NGHĨ ---------- */
 .clx-testi{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,4vw,52px);align-items:center}
