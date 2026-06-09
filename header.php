@@ -31,7 +31,7 @@ $logo = get_template_directory_uri() . '/assets/images/logo.png';
 
       <div class="twn-socials">
         <?php if ($fb): ?><a href="<?php echo esc_url($fb); ?>" target="_blank" rel="noopener" aria-label="Facebook"><?php echo itc_icon('thumb', 17); ?></a><?php endif; ?>
-        <a href="<?php echo esc_url($zalo); ?>" target="_blank" rel="noopener" aria-label="Zalo"><?php echo itc_icon('phone', 17); ?></a>
+        <a href="tel:<?php echo $tel; ?>" aria-label="Gọi <?php echo $hot; ?>"><?php echo itc_icon('phone', 17); ?></a>
       </div>
 
       <a class="twn-btn twn-btn--red" href="<?php echo esc_url(home_url('/lien-he/')); ?>">Đăng ký tư vấn</a>
