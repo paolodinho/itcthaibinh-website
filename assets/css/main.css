@@ -5,14 +5,14 @@
    ========================================================= */
 
 :root{
-  /* TÔNG ICC (yc khách, mẫu icchanoi.vn): ĐỎ-CAM TƯƠI rực làm chủ đạo, sáng chứ không thẫm.
-     Xanh dương làm accent mát (giống chữ nút quiz xanh của ICC). */
-  --blue:#FA4516;        /* đỏ-cam tươi - brand chủ đạo (nút, band, footer, chữ nhấn) */
-  --blue-dk:#E0380D;     /* đỏ-cam đậm hơn cho gradient/hover */
-  --blue-2:#1E78D8;      /* xanh dương tươi - accent mát điểm chút */
-  --red:#FA4516;
-  --red-dk:#E0380D;
-  --red-soft:#FFF1EC;    /* nền cam rất nhạt cho band/icon */
+  /* PALETTE CHÍNH XÁC theo duhocicc.edu.vn (Astra global): đỏ #EE200F primary + navy #153D8B secondary.
+     Đỏ tươi chủ đạo (nút, band, footer, chữ nhấn); navy làm accent. */
+  --blue:#EE200F;        /* đỏ tươi - brand chủ đạo */
+  --blue-dk:#CC1709;     /* đỏ đậm hơn cho gradient/hover */
+  --blue-2:#153D8B;      /* xanh navy - accent (secondary của ICC) */
+  --red:#EE200F;
+  --red-dk:#CC1709;
+  --red-soft:#FDEBE9;    /* nền đỏ rất nhạt cho band/icon */
   --ink:#1A2230;
   --muted:#5C6671;
   --paper:#FFFFFF;
@@ -295,7 +295,7 @@ h2{font-size:clamp(2rem,3.9vw,3.05rem);color:var(--ink)}
 .register__note svg{color:var(--blue)}
 
 /* ---------- FOOTER ---------- */
-.site-footer{background:linear-gradient(180deg,#FB4C1C 0%,#EC3C0C 100%);color:rgba(255,255,255,.86);
+.site-footer{background:linear-gradient(180deg,#EE200F 0%,#CC1709 100%);color:rgba(255,255,255,.86);
   padding-top:clamp(54px,6vw,76px)}
 .site-footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:38px;padding-bottom:46px}
 .foot-logo{display:inline-block;background:#fff;padding:10px 16px;border-radius:10px;margin-bottom:18px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
