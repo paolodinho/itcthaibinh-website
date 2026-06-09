@@ -24,21 +24,29 @@
   /* ---- Hero slider (auto 2 banner) ---- */
   var hs = document.querySelector('.clx-hero--slider');
   if (hs) {
+    var viewport = hs.querySelector('.clx-hero__viewport');
     var slides = hs.querySelectorAll('.clx-hero__slide');
     var dots = hs.querySelectorAll('.clx-hero__dots button');
-    var cur = 0, total = slides.length, delay = parseInt(hs.getAttribute('data-autoplay'), 10) || 6000, timer = null;
+    var cur = 0, total = slides.length, sdir = 1;
+    var delay = parseInt(hs.getAttribute('data-autoplay'), 10) || 5000, timer = null;
     var go = function (k) {
-      cur = (k + total) % total;
+      cur = Math.max(0, Math.min(total - 1, k));
+      if (viewport) viewport.style.transform = 'translateX(-' + (cur * 100) + '%)';
       for (var s = 0; s < slides.length; s++) slides[s].classList.toggle('is-active', s === cur);
       for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('is-active', d === cur);
     };
+    var advance = function () {
+      if (cur + sdir > total - 1 || cur + sdir < 0) sdir *= -1; // ping-pong, không nhảy giật
+      go(cur + sdir);
+    };
     var stop = function () { if (timer) { clearInterval(timer); timer = null; } };
-    var start = function () { if (reduce || total < 2) return; stop(); timer = setInterval(function () { go(cur + 1); }, delay); };
+    var start = function () { if (reduce || total < 2) return; stop(); timer = setInterval(advance, delay); };
     for (var x = 0; x < dots.length; x++) {
-      (function (idx) { dots[idx].addEventListener('click', function () { go(idx); start(); }); })(x);
+      (function (idx) { dots[idx].addEventListener('click', function () { sdir = idx > cur ? 1 : -1; go(idx); start(); }); })(x);
     }
     hs.addEventListener('mouseenter', stop);
     hs.addEventListener('mouseleave', start);
+    go(0);
     start();
   }
 

@@ -10,7 +10,7 @@ $hot  = esc_html(itc_contact('hotline'));
 ?>
 
 <!-- HERO SLIDER (auto 2 banner) -->
-<section class="clx-hero clx-hero--photo clx-hero--slider" data-autoplay="4000" aria-roledescription="carousel" aria-label="Banner ITC">
+<section class="clx-hero clx-hero--photo clx-hero--slider" data-autoplay="5000" aria-roledescription="carousel" aria-label="Banner ITC">
   <div class="clx-hero__viewport">
 
     <!-- SLIDE 1: Du học -->

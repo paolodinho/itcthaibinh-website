@@ -999,11 +999,10 @@ b.pop{animation:popnum .4s var(--ease)}
 .clx-hero__strip-in span{display:inline-flex;align-items:center;gap:8px}
 .clx-hero__strip-in svg{color:var(--red)}
 /* ---------- HERO SLIDER (auto 2 banner) ---------- */
-.clx-hero--slider{position:relative}
-.clx-hero__viewport{position:relative}
-.clx-hero__slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .55s var(--ease);pointer-events:none}
-.clx-hero__slide:first-child{position:relative}      /* slide đầu giữ chiều cao khung */
-.clx-hero__slide.is-active{opacity:1;visibility:visible;pointer-events:auto;z-index:2}
+.clx-hero--slider{position:relative;overflow:hidden}
+/* trượt ngang mượt như sharingtaiwan (KHÔNG fade -> đỡ mỏi mắt) */
+.clx-hero__viewport{position:relative;display:flex;transition:transform .9s var(--ease);will-change:transform}
+.clx-hero__slide{position:relative;flex:0 0 100%;min-width:100%}
 /* scrim sáng bên trái: chữ luôn trên nền sáng, không đè lên người/ảnh */
 .clx-hero__slide::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.82) 30%,rgba(255,255,255,0) 58%)}
