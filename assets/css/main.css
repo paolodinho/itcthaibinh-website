@@ -1001,13 +1001,23 @@ b.pop{animation:popnum .4s var(--ease)}
 .clx-hero__dots button{width:11px;height:11px;border-radius:50%;border:0;padding:0;cursor:pointer;
   background:rgba(20,20,30,.2);transition:.25s var(--ease)}
 .clx-hero__dots button.is-active{background:var(--red);width:30px;border-radius:7px}
+/* slide 2 (tạm): chữ thư pháp lớn mờ bên phải - motif ngoại ngữ */
+.clx-hero__lang{position:absolute;right:5%;top:50%;transform:translateY(-50%);z-index:1;text-align:right;
+  font-family:var(--font-display);font-weight:800;line-height:.92;pointer-events:none;user-select:none}
+.clx-hero__lang b{display:block;font-size:clamp(4rem,13vw,11rem);color:rgba(238,32,15,.13)}
+.clx-hero__lang i{display:block;font-style:normal;font-size:clamp(2rem,6vw,5rem);color:rgba(21,61,139,.16);margin-top:.1em}
+@media (max-width:900px){
+  .clx-hero__lang{right:50%;transform:translateX(50%);top:auto;bottom:7%;text-align:center}
+  .clx-hero__lang b{font-size:clamp(3.4rem,26vw,7rem)}
+}
 
 @media (min-width:901px){
   /* Khung banner theo TỈ LỆ sharingtaiwan.vn = 2.755:1 (1440->523px, 1920->697px). Sàn 480px. */
   .clx-hero--photo{min-height:max(36.3vw,480px)}
   .clx-hero__slide{background-color:#FCEFEC;background-position:right top;background-size:cover;background-repeat:no-repeat}
   .clx-hero__slide--du{background-image:url(../images/hero-banner-desktop.jpg)}
-  .clx-hero__slide--nn{background-image:url(../images/hero-banner2-desktop.jpg)}
+  /* TẠM: slide 2 bố cục typographic (chờ ảnh thật) - khác hẳn slide 1 */
+  .clx-hero__slide--nn{background-image:none;background:linear-gradient(120deg,#FFFFFF 0%,#FFF1EC 48%,#E9EFFb 100%)}
   .clx-hero--photo .clx-hero__grid{grid-template-columns:1fr;min-height:max(36.3vw,480px);align-items:center}
   /* dàn rộng kiểu sharingtaiwan: tiêu đề 2 dòng to, countries 1 dòng ngang trải rộng */
   .clx-hero--photo .clx-hero__content{max-width:720px;padding-block:clamp(14px,1.6vw,26px)}
@@ -1023,11 +1033,12 @@ b.pop{animation:popnum .4s var(--ease)}
   /* Mobile: mỗi slide dùng ảnh banner DỌC riêng (chữ phủ vùng trống trên, người ở dưới) */
   .clx-hero__slide{background-color:#FCEFEC;background-position:center top;background-size:cover;background-repeat:no-repeat}
   .clx-hero__slide--du{background-image:url(../images/hero-banner-mobile.jpg)}
-  .clx-hero__slide--nn{background-image:url(../images/hero-banner2-mobile.jpg)}
+  .clx-hero__slide--nn{background-image:none;background:linear-gradient(165deg,#FFFFFF 0%,#FFF1EC 55%,#E9EFFB 100%)}
   .clx-hero--photo .clx-hero__sub,
   .clx-hero--photo .clx-hero__flags,
   .clx-hero--photo .clx-hero__strip{display:none}
   .clx-hero--photo .clx-hero__grid{display:block;min-height:calc(100vw * 1.62);text-align:center;gap:0}
+  .clx-hero--photo .clx-hero__big{font-size:clamp(1.4rem,5.7vw,1.95rem);line-height:1.12}
   .clx-hero--photo .clx-hero__content{padding:24px 14px 0;max-width:none}
   .clx-hero--photo .clx-hero__box{margin:18px auto 0}
   .clx-hero__dots{bottom:14px}

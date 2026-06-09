@@ -30,8 +30,9 @@ $hot  = esc_html(itc_contact('hotline'));
       </div>
     </div>
 
-    <!-- SLIDE 2: Đào tạo ngoại ngữ (ảnh banner đang chờ - tạm dùng ảnh slide 1) -->
+    <!-- SLIDE 2: Đào tạo ngoại ngữ (bố cục typographic tạm - chờ ảnh banner thật) -->
     <div class="clx-hero__slide clx-hero__slide--nn" aria-roledescription="slide">
+      <div class="clx-hero__lang" aria-hidden="true"><b>你好</b><i>こんにちは</i></div>
       <div class="wrap clx-hero__grid">
         <div class="clx-hero__content">
           <span class="clx-hero__kk">Đào tạo ngoại ngữ &middot; Luyện thi chứng chỉ TOCFL &middot; JLPT</span>
