@@ -1001,8 +1001,14 @@ b.pop{animation:popnum .4s var(--ease)}
   .clx-hero--photo .clx-hero__deco,
   .clx-hero--photo .clx-hero__plane,
   .clx-hero--photo .clx-hero__person{display:none}
-  .clx-hero--photo .clx-hero__grid{grid-template-columns:1fr;min-height:clamp(460px,40vw,680px);align-items:center}
-  .clx-hero--photo .clx-hero__content{max-width:600px}
+  .clx-hero--photo .clx-hero__grid{grid-template-columns:1fr;min-height:clamp(500px,44vw,720px);align-items:center}
+  /* dàn cụm text rộng rãi hơn (yc khách): rộng bản, to chữ, giãn dòng dọc */
+  .clx-hero--photo .clx-hero__content{max-width:680px;padding-block:clamp(40px,5vw,72px)}
+  .clx-hero--photo .clx-hero__kk{margin-bottom:22px;letter-spacing:.1em;font-size:.9rem}
+  .clx-hero--photo .clx-hero__big{font-size:clamp(2.3rem,4.4vw,3.5rem);line-height:1.1}
+  .clx-hero--photo .clx-hero__script{margin-top:14px;font-size:clamp(1.8rem,2.6vw,2.5rem)}
+  .clx-hero--photo .clx-hero__sub{margin-top:26px;max-width:540px;font-size:1.12rem;line-height:1.75}
+  .clx-hero--photo .clx-hero__box{margin-top:34px}
 }
 @media (max-width:900px){
   /* Mobile: ảnh banner dọc (chữ phủ vùng trống phía trên, người ở dưới) */

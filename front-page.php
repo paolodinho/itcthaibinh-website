@@ -32,10 +32,10 @@ $hot  = esc_html(itc_contact('hotline'));
   </svg>
   <div class="wrap clx-hero__grid">
     <div class="clx-hero__content">
-      <span class="clx-hero__kk">Tư vấn du học &amp; đào tạo ngoại ngữ</span>
+      <span class="clx-hero__kk">Tư vấn du học &middot; Đào tạo ngoại ngữ uy tín tại Thái Bình</span>
       <h1 class="clx-hero__big">DU HỌC<br><span class="r">ĐÀI&nbsp;LOAN<br>NHẬT&nbsp;BẢN</span></h1>
       <span class="clx-hero__script">cùng ITC Thái Bình</span>
-      <p class="clx-hero__sub">Đồng hành trọn vẹn từ học tiếng, định hướng ngành nghề đến hoàn tất hồ sơ visa - minh bạch chi phí, tận tâm tới ngày bạn nhập học.</p>
+      <p class="clx-hero__sub">Đồng hành trọn vẹn từ học tiếng, định hướng ngành nghề đến hoàn tất hồ sơ visa. Minh bạch chi phí, tận tâm tới ngày bạn lên đường nhập học.</p>
       <div class="clx-hero__flags"><span>🇻🇳</span><span>🇹🇼</span><span>🇯🇵</span></div>
       <div class="clx-hero__box">
         <span>Tư vấn miễn phí ngay:</span>
