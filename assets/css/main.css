@@ -12,11 +12,11 @@
   --blue-2:#153D8B;      /* xanh navy - accent (secondary của ICC) */
   --red:#EE200F;
   --red-dk:#CC1709;
-  --red-soft:#FDEBE9;    /* nền đỏ rất nhạt cho band/icon */
+  --red-soft:#FFDED7;    /* THỬ phủ đỏ nhiều hơn: hồng đậm hơn */
   --ink:#1A2230;
   --muted:#5C6671;
-  --paper:#FFFFFF;
-  --paper-2:#F7F9FC;
+  --paper:#FFF4F1;       /* THỬ: nền trang hồng nhạt thay trắng */
+  --paper-2:#FCE6E0;     /* THỬ: band pale hồng-đỏ hơn */
   --line:#E7EBF0;
   --line-dk:rgba(255,255,255,.18);
 
