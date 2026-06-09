@@ -939,7 +939,7 @@ b.pop{animation:popnum .4s var(--ease)}
 .twn-nav li{position:relative}
 .twn-nav a{display:block;font-family:var(--font-display);font-weight:700;color:var(--blue-2);padding:12px 14px;border-radius:34px;
   font-size:.95rem;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap;transition:.18s var(--ease)}
-.twn-nav a:hover,.twn-nav .current-menu-item>a,.twn-nav .current-menu-parent>a{background:var(--red-soft);color:var(--red)}
+.twn-nav a:hover,.twn-nav .current-menu-item>a,.twn-nav .current-menu-parent>a{background:transparent;color:var(--red)}
 .twn-nav .menu-item-has-children>a{padding-right:30px}
 .twn-nav .menu-item-has-children>a::after{content:"";position:absolute;right:14px;top:50%;width:6px;height:6px;
   border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);opacity:.7}
