@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) exit;
 get_header();
 $img = get_template_directory_uri() . '/assets/images';
 
-itc_page_hero('Du học Nhật Bản', 'Môi trường kỷ luật, bằng cấp giá trị toàn cầu, lộ trình vừa học vừa làm rõ ràng - ITC đồng hành trọn lộ trình.', 'study-japan.jpg', true);
+itc_diag_hero('Du học Nhật Bản', 'study-japan.jpg');
 ?>
 
 <!-- DỊCH VỤ ITC HỖ TRỢ -->

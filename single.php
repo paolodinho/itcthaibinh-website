@@ -1,27 +1,28 @@
 <?php
-/** Bài viết đơn */
+/** Bài viết đơn - layout 2 cột (nội dung + sidebar) kiểu sharingtaiwan */
 if (!defined('ABSPATH')) exit;
 get_header();
-$img = get_template_directory_uri() . '/assets/images';
 while (have_posts()) : the_post();
-  itc_page_hero(get_the_title());
+  $cover = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : itc_post_image_url();
+  itc_diag_hero(get_the_title(), $cover);
 ?>
-<section class="section single">
-  <div class="wrap">
-    <div class="prose" style="margin-inline:auto">
+<section class="section">
+  <div class="wrap page-layout">
+    <main class="single">
       <div class="post-meta">
         <span><?php echo itc_icon('doc',15); ?> <?php echo get_the_date('d/m/Y'); ?></span>
         <span><?php echo itc_icon('thumb',15); ?> <?php the_author(); ?></span>
-        <?php $cats=get_the_category(); if($cats): ?><span><?php echo itc_icon('compass',15); ?> <?php echo esc_html($cats[0]->name); ?></span><?php endif; ?>
+        <?php $cats=get_the_category(); if($cats): ?><span><?php echo itc_icon('compass',15); ?> <a href="<?php echo esc_url(get_category_link($cats[0]->term_id)); ?>"><?php echo esc_html($cats[0]->name); ?></a></span><?php endif; ?>
       </div>
-    </div>
-    <?php if (has_post_thumbnail()) : ?>
-    <div class="post-thumb"><?php the_post_thumbnail('large'); ?></div>
-    <?php endif; ?>
-    <div class="prose" style="margin-inline:auto"><?php the_content(); ?></div>
-    <div class="prose" style="margin-inline:auto;margin-top:30px">
-      <a class="btn btn-outline" href="<?php echo esc_url(home_url('/tin-tuc-su-kien/')); ?>"><?php echo itc_icon('arrow',15); ?> Về trang Tin tức</a>
-    </div>
+      <?php if (has_post_thumbnail()) : ?>
+      <div class="post-thumb"><?php the_post_thumbnail('large'); ?></div>
+      <?php endif; ?>
+      <div class="prose"><?php the_content(); ?></div>
+      <div class="prose" style="margin-top:30px">
+        <a class="btn btn-outline" href="<?php echo esc_url(home_url('/tin-tuc-su-kien/')); ?>"><?php echo itc_icon('arrow',15); ?> Về trang Tin tức</a>
+      </div>
+    </main>
+    <?php itc_page_sidebar('', true); ?>
   </div>
 </section>
 

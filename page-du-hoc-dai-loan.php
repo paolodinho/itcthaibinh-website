@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) exit;
 get_header();
 $img = get_template_directory_uri() . '/assets/images';
 
-itc_page_hero('Du học Đài Loan', 'Nền giáo dục chất lượng top châu Á, học bổng giá trị cao và cơ hội vừa học vừa làm - ITC đồng hành trọn lộ trình.', 'study-taiwan.jpg', true);
+itc_diag_hero('Du học Đài Loan', 'study-taiwan.jpg');
 ?>
 
 <!-- DỊCH VỤ ITC HỖ TRỢ (card ảnh overlay - như trang Services) -->

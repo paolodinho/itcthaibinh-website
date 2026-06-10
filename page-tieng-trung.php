@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) exit;
 get_header();
 $img = get_template_directory_uri() . '/assets/images';
 
-itc_page_hero('Đào tạo tiếng Trung', 'Từ mất gốc đến giao tiếp tự tin và luyện thi HSK · TOCFL - lớp nhỏ, giáo viên kinh nghiệm, cam kết đầu ra.', 'lang-chinese.jpg', true);
+itc_diag_hero('Đào tạo tiếng Trung', 'act-3.jpg');
 ?>
 
 <!-- CÁC KHÓA HỌC (card ảnh) -->

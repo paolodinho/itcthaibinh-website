@@ -5,7 +5,7 @@ get_header();
 $tel = esc_attr(itc_contact('hotline_raw'));
 $addr = itc_contact('address');
 $map = itc_contact('map_embed');
-itc_page_hero('Liên hệ ITC', 'Đội ngũ ITC luôn sẵn sàng tư vấn miễn phí cho bạn.');
+itc_diag_hero('Liên hệ ITC', 'about-team.jpg');
 ?>
 <section class="section">
   <div class="wrap">

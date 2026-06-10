@@ -7,10 +7,11 @@ if (is_search()) { $title = 'Kết quả tìm kiếm'; $sub = 'Từ khóa: “' 
 elseif (is_category() || is_tag() || is_tax()) { $title = single_term_title('', false); $sub = 'Tin tức – Sự kiện ITC Thái Bình'; }
 elseif (is_archive()) { $title = get_the_archive_title(); $sub = ''; }
 else { $title = 'Tin tức – Sự kiện'; $sub = 'Cập nhật mới nhất về du học, học bổng và hoạt động của ITC.'; }
-itc_page_hero($title, $sub, '', true);
+itc_diag_hero($title, 'about-wide.jpg');
 ?>
 <section class="section">
-  <div class="wrap">
+  <div class="wrap page-layout">
+    <main>
     <div class="catbar reveal">
       <a class="catbar__chip<?php echo (is_home()||is_page('tin-tuc-su-kien'))?' is-active':''; ?>" href="<?php echo esc_url(home_url('/tin-tuc-su-kien/')); ?>">Tất cả</a>
       <?php
@@ -42,6 +43,8 @@ itc_page_hero($title, $sub, '', true);
     <?php else : ?>
       <p style="text-align:center;color:var(--muted)">Không tìm thấy bài viết nào.</p>
     <?php endif; ?>
+    </main>
+    <?php itc_page_sidebar('', true); ?>
   </div>
 </section>
 <?php get_footer();

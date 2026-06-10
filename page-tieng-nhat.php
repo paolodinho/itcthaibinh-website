@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) exit;
 get_header();
 $img = get_template_directory_uri() . '/assets/images';
 
-itc_page_hero('Đào tạo tiếng Nhật', 'Nền tảng bảng chữ vững chắc, ngữ pháp bài bản, luyện thi JLPT N5 – N1 - lớp nhỏ, cam kết đầu ra.', 'lang-japanese.jpg', true);
+itc_diag_hero('Đào tạo tiếng Nhật', 'act-6.jpg');
 ?>
 
 <!-- CÁC KHÓA HỌC -->

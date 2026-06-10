@@ -72,6 +72,131 @@
     requestAnimationFrame(galTick);
   }
 
+  /* ---- Hoạt động: carousel CENTER (thẻ giữa to lên) + auto 3s + mũi tên 2 đầu ---- */
+  var acw = document.querySelector('.clx-acts__wrap');
+  if (acw) {
+    var avp = acw.querySelector('.clx-acts');
+    var atrack = acw.querySelector('.clx-acts__track');
+    var aprev = acw.querySelector('.clx-acts__arw--prev');
+    var anext = acw.querySelector('.clx-acts__arw--next');
+    var adots = acw.parentElement.querySelectorAll('.clx-acts__dots span');
+    var aReal = Array.prototype.slice.call(atrack.querySelectorAll('.clx-acts__card'));
+    var aN = aReal.length;
+    /* Vòng lặp vô tận: nhân bản bộ thẻ ra 2 bên để hàng LUÔN đầy, không trống đầu/cuối */
+    var aLoop = !reduce && aN >= 2;
+    if (aLoop) {
+      var aPre = document.createDocumentFragment(), aPost = document.createDocumentFragment();
+      aReal.forEach(function (c) { var n = c.cloneNode(true); n.setAttribute('aria-hidden', 'true'); aPre.appendChild(n); });
+      aReal.forEach(function (c) { var n = c.cloneNode(true); n.setAttribute('aria-hidden', 'true'); aPost.appendChild(n); });
+      atrack.insertBefore(aPre, atrack.firstChild);
+      atrack.appendChild(aPost);
+    }
+    var acards = atrack.querySelectorAll('.clx-acts__card');
+    var aTotal = acards.length;
+    var aBase = aLoop ? aN : 0;                 // chỉ số đầu của bộ thẻ "gốc" (giữa)
+    var acur = aBase + Math.floor(aN / 2);      // thẻ đang ở giữa (index trong acards)
+    var atimer = null, aBusy = false;
+    var aApply = function (anim) {
+      var c = acards[acur];
+      var tx = avp.clientWidth / 2 - (c.offsetLeft + c.offsetWidth / 2);
+      if (!anim) { atrack.style.transition = 'none'; }
+      atrack.style.transform = 'translateX(' + tx + 'px)';
+      if (!anim) { void atrack.offsetWidth; atrack.style.transition = ''; }
+      var realIdx = (((acur - aBase) % aN) + aN) % aN;
+      for (var k = 0; k < aTotal; k++) acards[k].classList.toggle('is-active', k === acur);
+      for (var d = 0; d < adots.length; d++) adots[d].classList.toggle('on', d === realIdx);
+    };
+    var aSet = function (i) {
+      acur = i;
+      aApply(true);
+      if (aLoop) {
+        aBusy = true;
+        setTimeout(function () {
+          if (acur < aN || acur >= 2 * aN) {            // ra ngoài bộ gốc -> nhảy thầm về bộ gốc (thẻ trùng hình)
+            acur = aBase + ((((acur - aBase) % aN) + aN) % aN);
+            aApply(false);
+          }
+          aBusy = false;
+        }, 600);
+      }
+    };
+    var aStop = function () { if (atimer) { clearInterval(atimer); atimer = null; } };
+    var aStart = function () { if (reduce || aN < 2) return; aStop(); atimer = setInterval(function () { if (!aBusy) aSet(acur + 1); }, 3000); };
+    if (aprev) aprev.addEventListener('click', function () { if (!aBusy) { aSet(acur - 1); aStart(); } });
+    if (anext) anext.addEventListener('click', function () { if (!aBusy) { aSet(acur + 1); aStart(); } });
+    for (var ai = 0; ai < adots.length; ai++) {
+      (function (idx) { adots[idx].addEventListener('click', function () { if (!aBusy) { aSet(aBase + idx); aStart(); } }); })(ai);
+    }
+    acards.forEach(function (c, i) { c.addEventListener('click', function (e) { if (i !== acur && !aBusy) { e.preventDefault(); aSet(i); aStart(); } }); });
+    acw.addEventListener('mouseenter', aStop);
+    acw.addEventListener('mouseleave', aStart);
+    var aRT;
+    window.addEventListener('resize', function () { clearTimeout(aRT); aRT = setTimeout(function () { aApply(false); }, 150); });
+    aApply(false);
+    aStart();
+  }
+
+  /* ---- Cảm nghĩ: lật trang 3D (giở như cuốn lưu bút) + dots + mũi tên + autoplay ---- */
+  var tw = document.querySelector('.clx-tw');
+  if (tw) {
+    var tvp = tw.querySelector('.clx-tw__viewport');
+    var tslides = Array.prototype.slice.call(tw.querySelectorAll('.clx-tw__slide'));
+    var tdots = tw.querySelectorAll('.clx-tw__dots button');
+    var tprev = tw.querySelector('.clx-tw__arw--prev');
+    var tnext = tw.querySelector('.clx-tw__arw--next');
+    var tn = tslides.length, tc = 0, tt = null, tbusy = false, TDUR = 800;
+    var tdelay = parseInt(tw.getAttribute('data-autoplay'), 10) || 6000;
+    var tSize = function () {
+      var h = 0;
+      for (var i = 0; i < tn; i++) h = Math.max(h, tslides[i].offsetHeight);
+      if (h) tvp.style.height = h + 'px';
+    };
+    var tDots = function () { for (var i = 0; i < tn; i++) if (tdots[i]) tdots[i].classList.toggle('on', i === tc); };
+    var tFlip = function (k, dir) {
+      k = (k + tn) % tn;
+      if (k === tc || tbusy) return;
+      var outg = tslides[tc], inc = tslides[k];
+      if (reduce) { outg.classList.remove('is-active'); inc.classList.add('is-active'); tc = k; tDots(); return; }
+      tbusy = true;
+      if (dir < 0) {
+        // lùi: trang mới lật úp từ mép trái xuống chồng lên
+        inc.classList.add('is-active', 'flip-start');
+        void inc.offsetWidth;
+        inc.classList.add('flip-in'); inc.classList.remove('flip-start');
+        setTimeout(function () {
+          outg.classList.remove('is-active');
+          inc.classList.remove('flip-in');
+          tc = k; tDots(); tbusy = false;
+        }, TDUR);
+      } else {
+        // tiến: trang mới hé bên dưới, trang hiện tại giở sang trái lộ ra
+        inc.classList.add('is-active', 'is-under');
+        void inc.offsetWidth;
+        outg.classList.add('flip-out');
+        setTimeout(function () {
+          outg.classList.remove('is-active', 'flip-out');
+          inc.classList.remove('is-under');
+          tc = k; tDots(); tbusy = false;
+        }, TDUR);
+      }
+    };
+    var tStop = function () { if (tt) { clearInterval(tt); tt = null; } };
+    var tStart = function () { if (reduce || tn < 2) return; tStop(); tt = setInterval(function () { tFlip(tc + 1, 1); }, tdelay); };
+    if (tprev) tprev.addEventListener('click', function () { tFlip(tc - 1, -1); tStart(); });
+    if (tnext) tnext.addEventListener('click', function () { tFlip(tc + 1, 1); tStart(); });
+    for (var twi = 0; twi < tdots.length; twi++) {
+      (function (idx) { tdots[idx].addEventListener('click', function () { tFlip(idx, idx > tc ? 1 : -1); tStart(); }); })(twi);
+    }
+    tw.addEventListener('mouseenter', tStop);
+    tw.addEventListener('mouseleave', tStart);
+    tslides.forEach(function (s, i) { s.classList.toggle('is-active', i === 0); });
+    tDots();
+    tSize();
+    window.addEventListener('load', tSize);
+    var tRT; window.addEventListener('resize', function () { clearTimeout(tRT); tRT = setTimeout(tSize, 150); });
+    tStart();
+  }
+
   /* ---- Header shadow on scroll ---- */
   var header = document.querySelector('.twn-navwrap') || document.querySelector('.site-header');
   if (header) {

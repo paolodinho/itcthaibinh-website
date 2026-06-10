@@ -5,7 +5,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('ITC_VER', '10.10.4');
+define('ITC_VER', '10.74.0');
 
 /* ----------------------------------------------------------
  * Theme setup
@@ -68,6 +68,7 @@ function itc_contact($key) {
         'email'        => 'info@itcthaibinh.vn',
         'address'      => 'LK09-34, Đại lộ Kỳ Đồng, Phường Trần Hưng Đạo, Tỉnh Hưng Yên',
         'zalo'         => 'https://zalo.me/0985653868',
+        'messenger'    => 'https://m.me/duhocitcthaibinh',
         'facebook'     => 'https://www.facebook.com/duhocitcthaibinh',
         'fb_duhoc'     => 'https://www.facebook.com/duhocitcthaibinh',
         'fb_hoangu'    => 'https://www.facebook.com/TrungTamITCThaiBinh',
@@ -291,6 +292,13 @@ add_action('init', function () {
 function itc_photo_groups() {
     $terms = get_terms(['taxonomy' => 'photo_cat', 'hide_empty' => true]);
     if (!is_wp_error($terms) && $terms) {
+        // Thứ tự danh mục cố định (khớp carousel trang chủ); danh mục khác xếp cuối.
+        $ord = ['tu-van', 'tien-bay', 'thanh-tich', 'doi-ngu', 'hoat-dong'];
+        usort($terms, function ($a, $b) use ($ord) {
+            $ia = array_search($a->slug, $ord); $ib = array_search($b->slug, $ord);
+            $ia = ($ia === false) ? 99 : $ia; $ib = ($ib === false) ? 99 : $ib;
+            return ($ia <=> $ib) ?: strcmp($a->name, $b->name);
+        });
         $out = [];
         foreach ($terms as $t) {
             $q = new WP_Query(['post_type' => 'itc_photo', 'posts_per_page' => 60, 'orderby' => 'menu_order date', 'order' => 'ASC',
@@ -503,13 +511,29 @@ function itc_icon($name, $size = 24) {
         'compass'  => '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5.5-5 2 2-5.5 5-2Z"/>',
         'medal'    => '<circle cx="12" cy="14.5" r="5"/><path d="m9 9.5-2.5-6M15 9.5l2.5-6M10.5 14.5 12 13l1.5 1.5-.5 2h-2l-.5-2Z"/>',
         'doc'      => '<path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
-        'tower'    => '<path d="M12 2v20"/><path d="M10.5 6h3M9.5 9.5h5M8.5 13h7M7.5 16.5h9"/><path d="M9 22h6"/>',
-        'fuji'     => '<path d="M3 19 9 7l3 4.5L15 7l6 12H3Z"/><path d="m7.2 11.5 1.8 1.2 1.5-1 1.5 1 1.5-1 1.8 1.1"/>',
+        'tower'    => '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>',
+        'fuji'     => '<path d="M7.6 8.4a4.4 4.4 0 0 1 8.8 0"/><path d="M2.5 18.6 9.2 11l1.4 1.7L12 10.5l1.4 2.2L14.8 11l6.7 7.6"/><path d="M2 18.7h20"/>',
+        'lang'     => '<path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>',
         'torii'    => '<path d="M4 7h16M5 9.5h14M7 7v13M17 7v13M3.5 7c2-2 15-2 17 0"/>',
+        'users'    => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+        'heart'    => '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>',
+        'user'     => '<circle cx="12" cy="8" r="4"/><path d="M5 20.5c0-3.9 3.1-7 7-7s7 3.1 7 7"/>',
+        'pin'      => '<path d="M12 21s7-6.3 7-11a7 7 0 0 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/>',
+        'clock'    => '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
         'arrow'    => '<path d="M1 7h15M11 1l5 6-5 6"/>',
     ];
     $d = $p[$name] ?? '';
     return '<svg width="'.$size.'" height="'.$size.'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'.$d.'</svg>';
+}
+
+/* Logo thương hiệu MXH (dạng fill, đúng nhận diện - khác icon outline ở itc_icon) */
+function itc_brand($name, $size = 20) {
+    $p = [
+        'facebook'  => '<path d="M14 8.4V6.6c0-.82.2-1.2 1.3-1.2H17V2.25c-.34-.03-1.34-.12-2.5-.12-2.5 0-4.23 1.53-4.23 4.32V8.4H7v3.4h3.27V22H14v-10.2h2.85l.42-3.4H14Z"/>',
+        'messenger' => '<path d="M12 2C6.3 2 2 6.18 2 11.7c0 2.9 1.17 5.4 3.08 7.13.16.15.26.36.27.58l.05 1.78c.02.57.6.94 1.12.7l1.98-.87c.17-.08.36-.1.54-.05 1 .27 2.06.42 3.13.42 5.7 0 10-4.18 10-9.7S17.7 2 12 2Zm6 7.43-2.94 4.66c-.47.74-1.46.92-2.16.4l-2.34-1.75a.6.6 0 0 0-.72 0l-3.16 2.4c-.42.32-.97-.18-.69-.62l2.94-4.66c.47-.74 1.46-.92 2.16-.4l2.34 1.75c.21.16.5.16.72 0l3.16-2.4c.42-.32.97.18.69.62Z"/>',
+    ];
+    $d = $p[$name] ?? '';
+    return '<svg width="'.$size.'" height="'.$size.'" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">'.$d.'</svg>';
 }
 
 /* ----------------------------------------------------------
@@ -721,6 +745,28 @@ function itc_page_hero($title, $sub = '', $bg = '', $center = false) {
 }
 
 /* ----------------------------------------------------------
+ * Diagonal cover hero - clone sharingtaiwan (nền đỏ + ảnh cắt chéo + H1 xanh in hoa)
+ * $photo: tên file trong assets/images (vd 'about-wide.jpg')
+ * -------------------------------------------------------- */
+function itc_diag_hero($title, $photo = 'about-wide.jpg', $alt = '') {
+    $imgdir = get_template_directory_uri() . '/assets/images';
+    $alt = $alt ?: $title;
+    $src = (strpos($photo, 'http') === 0) ? $photo : $imgdir . '/' . $photo;
+    echo '<section class="dhero">';
+    echo '<span class="dhero__deco" aria-hidden="true"></span>';
+    echo '<div class="dhero__photo"><img src="' . esc_url($src) . '" alt="' . esc_attr($alt) . '" loading="eager" fetchpriority="high"></div>';
+    echo '<div class="dhero__inner"><div class="wrap">';
+    echo '<nav class="crumb" aria-label="Breadcrumb"><a href="' . esc_url(home_url('/')) . '">Trang chủ</a><span>»</span><b>' . esc_html($title) . '</b></nav>';
+    echo '<h1>' . esc_html($title) . '</h1>';
+    echo '</div></div></section>';
+    $bc = ['@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Trang chủ', 'item' => home_url('/')],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => $title, 'item' => (is_singular() ? get_permalink() : home_url('/'))],
+    ]];
+    echo '<script type="application/ld+json">' . wp_json_encode($bc, JSON_UNESCAPED_UNICODE) . '</script>';
+}
+
+/* ----------------------------------------------------------
  * Section đăng ký (navy + form) - tái dùng cho landing
  * -------------------------------------------------------- */
 function itc_register_section($title = '', $sub = '', $program = '') {
@@ -729,11 +775,21 @@ function itc_register_section($title = '', $sub = '', $program = '') {
     $tel = esc_attr(itc_contact('hotline_raw'));
     ?>
     <section class="section register" id="register">
+      <div class="clx-deco clx-deco--reg" aria-hidden="true">
+        <span class="dco-dots dco-dots--w"></span>
+        <span class="dco-dots dco-dots--w is-br"></span>
+        <svg class="reg-fly" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid meet">
+          <path class="rf-arc" d="M10 150 C90 70 210 70 310 140"></path>
+          <circle class="rf-pin-o" cx="310" cy="140" r="8"></circle><circle class="rf-pin-i" cx="310" cy="140" r="3"></circle>
+          <g class="rf-plane" transform="translate(150 70) rotate(22)"><path d="M0 8 26 0 20 8 28 12 15 13 10 24 8 13Z"></path></g>
+        </svg>
+      </div>
       <div class="wrap register__grid">
         <div class="register__text reveal">
           <span class="kicker kicker--light">Đăng ký tư vấn</span>
           <h2><?php echo $title; ?></h2>
-          <p class="lead" style="color:var(--muted)"><?php echo esc_html($sub); ?></p>
+          <p class="lead"><?php echo esc_html($sub); ?></p>
+          <span class="reg__bubble"><?php echo itc_icon('plane',16); ?> Cùng ITC mở cánh cửa du học</span>
           <ul class="reg__contact">
             <li><span class="reg__ico"><?php echo itc_icon('phone',18); ?></span><div><small>Hotline</small><a href="tel:<?php echo $tel; ?>"><?php echo esc_html(itc_contact('hotline')); ?></a></div></li>
             <li><span class="reg__ico"><?php echo itc_icon('doc',18); ?></span><div><small>Email</small><a href="mailto:<?php echo esc_attr(itc_contact('email')); ?>"><?php echo esc_html(itc_contact('email')); ?></a></div></li>
@@ -741,7 +797,6 @@ function itc_register_section($title = '', $sub = '', $program = '') {
           </ul>
         </div>
         <form class="register__form reveal" data-delay="1" action="#" method="post" onsubmit="return false;">
-          <h3>Nhận tư vấn miễn phí</h3>
           <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="field"><label for="r-name">Họ và tên <i>*</i></label><input type="text" id="r-name" name="name" required autocomplete="name" placeholder="Nguyễn Văn A"></div>
           <div class="field"><label for="r-phone">Số điện thoại <i>*</i></label><input type="tel" id="r-phone" name="phone" required autocomplete="tel" inputmode="numeric" pattern="[0-9]{9,11}" placeholder="09xx xxx xxx"></div>
@@ -764,7 +819,7 @@ function itc_register_section($title = '', $sub = '', $program = '') {
 /* ----------------------------------------------------------
  * Sidebar trang con (CTA tư vấn + liên kết nhanh)
  * -------------------------------------------------------- */
-function itc_page_sidebar($active = '') {
+function itc_page_sidebar($active = '', $hot = false) {
     $links = [
         'du-hoc-dai-loan' => 'Du học Đài Loan',
         'du-hoc-nhat-ban' => 'Du học Nhật Bản',
@@ -780,6 +835,25 @@ function itc_page_sidebar($active = '') {
         <a class="btn btn-red" style="width:100%;justify-content:center;margin-bottom:10px" href="<?php echo esc_url(home_url('/lien-he/')); ?>">Đăng ký tư vấn</a>
         <a class="btn btn-ghost" style="width:100%;justify-content:center" href="tel:<?php echo esc_attr(itc_contact('hotline_raw')); ?>"><?php echo itc_icon('phone',16); ?> <?php echo esc_html(itc_contact('hotline')); ?></a>
       </div>
+      <?php if ($hot) :
+        $hotq = new WP_Query(['post_type'=>'post','posts_per_page'=>5,'ignore_sticky_posts'=>true,
+          'post__not_in'=>(is_singular('post')?[get_the_ID()]:[]),'orderby'=>'date','order'=>'DESC']);
+        if ($hotq->have_posts()) : ?>
+      <div class="sidebar__card">
+        <h3><?php echo itc_icon('star',18); ?> Tin nổi bật</h3>
+        <ul class="sidebar__hot">
+          <?php while ($hotq->have_posts()) : $hotq->the_post(); ?>
+          <li>
+            <a class="shot__media" href="<?php the_permalink(); ?>"><img src="<?php echo esc_url(itc_post_image_url()); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"></a>
+            <div class="shot__body">
+              <span class="shot__date"><?php echo get_the_date('d/m/Y'); ?></span>
+              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </div>
+          </li>
+          <?php endwhile; wp_reset_postdata(); ?>
+        </ul>
+      </div>
+      <?php endif; endif; ?>
       <div class="sidebar__card">
         <h3>Chương trình khác</h3>
         <nav class="sidebar__menu">
@@ -805,3 +879,33 @@ function itc_cta_band($title = '', $text = '') {
     echo '<a class="btn btn-red btn-lg" href="' . esc_url($lh) . '">Đăng ký tư vấn miễn phí ' . itc_icon('arrow', 16) . '</a>';
     echo '</div></section>';
 }
+
+/* ----------------------------------------------------------
+ * Tự tạo các trang hệ thống (Chính sách BM / Điều khoản / Sitemap)
+ * nếu chưa tồn tại - để footer link đúng slug & chọn đúng template.
+ * -------------------------------------------------------- */
+add_action('init', function () {
+    if (get_option('itc_legal_pages_v') === '1') return;
+    $pages = [
+        'chinh-sach-bao-mat' => ['Chính sách bảo mật', 'page-chinh-sach-bao-mat.php'],
+        'dieu-khoan-su-dung' => ['Điều khoản sử dụng', 'page-dieu-khoan-su-dung.php'],
+        'sitemap'            => ['Sơ đồ website', 'page-sitemap.php'],
+    ];
+    foreach ($pages as $slug => $info) {
+        $existing = get_page_by_path($slug);
+        if ($existing) {
+            if (get_post_meta($existing->ID, '_wp_page_template', true) !== $info[1])
+                update_post_meta($existing->ID, '_wp_page_template', $info[1]);
+            continue;
+        }
+        wp_insert_post([
+            'post_title'   => $info[0],
+            'post_name'    => $slug,
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_content' => '',
+            'meta_input'   => ['_wp_page_template' => $info[1]],
+        ]);
+    }
+    update_option('itc_legal_pages_v', '1');
+});

@@ -5,7 +5,7 @@
  */
 if (!defined('ABSPATH')) exit;
 get_header();
-itc_page_hero('Thư viện ảnh ITC', 'Khoảnh khắc thật tại ITC - lớp học, đội ngũ, sự kiện và hành trình du học của học viên.', 'hero-wide.jpg', true);
+itc_diag_hero('Thư viện ảnh ITC', 'hero-wide.jpg');
 $groups = itc_photo_groups();
 $total = 0; foreach ($groups as $gr) $total += count($gr['items']);
 ?>
@@ -67,11 +67,19 @@ $total = 0; foreach ($groups as $gr) $total += count($gr['items']);
 (function(){
   var chips=document.querySelectorAll('.gfilter .catbar__chip');
   var items=Array.prototype.slice.call(document.querySelectorAll('.ggrid .gitem'));
-  chips.forEach(function(c){c.addEventListener('click',function(){
+  function applyFilter(c){
     chips.forEach(function(x){x.classList.remove('is-active');});c.classList.add('is-active');
     var f=c.getAttribute('data-filter');
     items.forEach(function(it){it.style.display=(f==='all'||it.getAttribute('data-cat')===f)?'':'none';});
-  });});
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){applyFilter(c);});});
+  // Lọc sẵn theo #danh-mục khi vào từ trang chủ (vd /thu-vien-anh/#tu-van)
+  function fromHash(){
+    var h=(location.hash||'').replace('#','');
+    if(!h)return;
+    chips.forEach(function(c){ if(c.getAttribute('data-filter')===h){ applyFilter(c); c.scrollIntoView({block:'nearest',inline:'center'}); } });
+  }
+  fromHash(); window.addEventListener('hashchange',fromHash);
 
   var lb=document.getElementById('glb');
   var book=lb.querySelector('.glb__book'), page=lb.querySelector('.glb__page');

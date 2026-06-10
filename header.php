@@ -29,13 +29,7 @@ $logo = get_template_directory_uri() . '/assets/images/logo.png';
         <span><small>Chat Zalo tư vấn</small><?php echo $hot; ?></span>
       </a>
 
-      <div class="twn-socials">
-        <?php if ($fb): ?><a href="<?php echo esc_url($fb); ?>" target="_blank" rel="noopener" aria-label="Facebook"><?php echo itc_icon('thumb', 17); ?></a><?php endif; ?>
-        <a href="tel:<?php echo $tel; ?>" aria-label="Gọi <?php echo $hot; ?>"><?php echo itc_icon('phone', 17); ?></a>
-      </div>
-
       <a class="twn-btn twn-btn--red" href="<?php echo esc_url(home_url('/lien-he/')); ?>">Đăng ký tư vấn</a>
-      <span class="twn-search" aria-hidden="true"><?php echo itc_icon('compass', 18); ?></span>
 
       <button class="twn-toggle nav-toggle" aria-label="Mở menu" aria-controls="primary-nav" aria-expanded="false">
         <span></span><span></span><span></span>
